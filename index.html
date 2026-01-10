@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sane Apps - Open Source macOS Utilities</title>
+    <meta name="description" content="Privacy-respecting, open source macOS utilities. No telemetry, no subscriptions, no BS.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧘</text></svg>">
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card-bg: #141414;
+            --text: #e5e5e5;
+            --text-muted: #888;
+            --accent: #3b82f6;
+            --accent-hover: #60a5fa;
+            --green: #22c55e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 24px 0;
+            border-bottom: 1px solid #222;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            font-size: 1.8rem;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 80px 0 60px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero .tagline {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .badges {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--card-bg);
+            border: 1px solid #333;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .badge.green {
+            border-color: var(--green);
+            color: var(--green);
+        }
+
+        /* Apps Grid */
+        .apps-section {
+            padding: 60px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 32px;
+            text-align: center;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .app-card {
+            background: var(--card-bg);
+            border: 1px solid #222;
+            border-radius: 16px;
+            padding: 32px;
+            transition: border-color 0.2s, transform 0.2s;
+        }
+
+        .app-card:hover {
+            border-color: #444;
+            transform: translateY(-2px);
+        }
+
+        .app-card.featured {
+            border-color: var(--accent);
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+
+        .app-icon {
+            font-size: 2.5rem;
+        }
+
+        .app-name {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .app-status {
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-left: auto;
+        }
+
+        .app-status.live {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--green);
+        }
+
+        .app-status.soon {
+            background: rgba(59, 130, 246, 0.2);
+            color: var(--accent);
+        }
+
+        .app-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .app-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .app-links a {
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.2s;
+        }
+
+        .app-links a:hover {
+            color: var(--accent-hover);
+        }
+
+        /* Philosophy */
+        .philosophy {
+            padding: 60px 0;
+            border-top: 1px solid #222;
+        }
+
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 32px;
+            text-align: center;
+        }
+
+        .philosophy-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .philosophy-item p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid #222;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 16px;
+            }
+
+            nav a {
+                margin-left: 16px;
+            }
+
+            nav a:first-child {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <span>🧘</span> Sane Apps
+            </a>
+            <nav>
+                <a href="https://github.com/sane-apps">GitHub</a>
+                <a href="#apps">Apps</a>
+                <a href="https://github.com/sponsors/stephanjoseph">Donate</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Sane Apps</h1>
+                <p class="tagline">Open source macOS utilities that respect your privacy. No telemetry, no subscriptions, no corporate BS.</p>
+                <div class="badges">
+                    <span class="badge green">100% Open Source</span>
+                    <span class="badge">Zero Telemetry</span>
+                    <span class="badge">Native Swift</span>
+                    <span class="badge">Free Forever</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="apps-section" id="apps">
+            <div class="container">
+                <h2 class="section-title">Apps</h2>
+                <div class="apps-grid">
+                    <div class="app-card featured">
+                        <div class="app-header">
+                            <span class="app-icon">📊</span>
+                            <span class="app-name">SaneBar</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Clean up your menu bar. Hide icons you don't need, reveal them with a click. The sane alternative to Bartender.</p>
+                        <div class="app-links">
+                            <a href="https://sanebar.app">Website →</a>
+                            <a href="https://github.com/stephanjoseph/SaneBar">GitHub →</a>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-header">
+                            <span class="app-icon">🔄</span>
+                            <span class="app-name">SaneSync</span>
+                            <span class="app-status soon">Coming Soon</span>
+                        </div>
+                        <p class="app-desc">Sync your files without the cloud. Direct device-to-device sync that doesn't phone home.</p>
+                        <div class="app-links">
+                            <a href="#">Coming Soon</a>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-header">
+                            <span class="app-icon">🎬</span>
+                            <span class="app-name">SaneVideo</span>
+                            <span class="app-status soon">Coming Soon</span>
+                        </div>
+                        <p class="app-desc">Local video processing and transcription. Your footage never leaves your Mac.</p>
+                        <div class="app-links">
+                            <a href="#">Coming Soon</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="philosophy">
+            <div class="container">
+                <div class="philosophy-grid">
+                    <div class="philosophy-item">
+                        <h3>🔒 Privacy First</h3>
+                        <p>No analytics. No tracking. No "anonymous" telemetry. Your data stays on your device.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h3>🛠️ Open Source</h3>
+                        <p>Every line of code is on GitHub. Audit it, fork it, improve it.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h3>🚀 Native Performance</h3>
+                        <p>Built with Swift and AppKit. No Electron bloat eating your RAM.</p>
+                    </div>
+                    <div class="philosophy-item">
+                        <h3>💚 Indie Made</h3>
+                        <p>One developer, no VC money, no acquisition exit strategy. Just useful software.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Made with care by <a href="https://github.com/stephanjoseph">Mr. Sane</a></p>
+            <p style="margin-top: 8px;">"The worker is worthy of his wages." — 1 Timothy 5:18</p>
+        </div>
+    </footer>
+</body>
+</html>
