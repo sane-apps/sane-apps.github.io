@@ -1,0 +1,46 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Background gradient matching SaneBar -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a2744"/>
+      <stop offset="100%" style="stop-color:#0d1525"/>
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <!-- Stronger outer glow -->
+    <filter id="outerGlow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feComposite in="blur" in2="SourceGraphic" operator="out"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="512" height="512" fill="url(#bgGradient)"/>
+
+  <!-- Double chevron (play/fast-forward) with glow -->
+  <g filter="url(#glow)">
+    <!-- First chevron -->
+    <path d="M 140 160 L 220 256 L 140 352"
+          fill="none"
+          stroke="#5fa8d3"
+          stroke-width="36"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+
+    <!-- Second chevron -->
+    <path d="M 260 160 L 340 256 L 260 352"
+          fill="none"
+          stroke="#5fa8d3"
+          stroke-width="36"
+          stroke-linecap="round"
+          stroke-linejoin="round"/>
+  </g>
+</svg>
