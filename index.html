@@ -29,8 +29,8 @@
     <meta name="twitter:image" content="https://saneapps.com/og-image.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" href="https://saneapps.com/logo.png">
-    <link rel="apple-touch-icon" href="https://saneapps.com/logo.png">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
 
     <!-- Schema.org Structured Data -->
     <script type="application/ld+json">
@@ -52,13 +52,14 @@
     </script>
     <style>
         :root {
-            --bg: #0a0a0a;
-            --card-bg: #141414;
-            --text: #e5e5e5;
-            --text-muted: #888;
+            --bg: #08080c;
+            --card-bg: #16161f;
+            --text: #f5f5f8;
+            --text-muted: #c0c0d0;
             --accent: #5fa8d3;
             --accent-hover: #7fbde3;
             --green: #22c55e;
+            --border: #252530;
         }
 
         * {
@@ -83,8 +84,8 @@
 
         /* Header */
         header {
-            padding: 24px 0;
-            border-bottom: 1px solid #222;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
         }
 
         .header-content {
@@ -126,7 +127,7 @@
 
         /* Hero */
         .hero {
-            padding: 80px 0 60px;
+            padding: 60px 0 40px;
             text-align: center;
         }
 
@@ -141,7 +142,7 @@
             font-size: 1.25rem;
             color: var(--text-muted);
             max-width: 600px;
-            margin: 0 auto 32px;
+            margin: 0 auto 20px;
         }
 
         .badges {
@@ -153,21 +154,21 @@
 
         .badge {
             background: var(--card-bg);
-            border: 1px solid #333;
+            border: 1px solid var(--border);
             padding: 8px 16px;
             border-radius: 20px;
             font-size: 0.85rem;
             color: var(--text-muted);
         }
 
-        .badge.green {
-            border-color: var(--green);
-            color: var(--green);
+        .badge.accent {
+            border-color: var(--accent);
+            color: var(--accent);
         }
 
         /* Apps Grid */
         .apps-section {
-            padding: 60px 0;
+            padding: 40px 0;
         }
 
         .section-title {
@@ -271,14 +272,57 @@
             text-align: center;
         }
 
-        .philosophy-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 8px;
+        .philosophy-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 28px 20px;
+            text-align: center;
         }
 
-        .philosophy-item p {
+        .philosophy-emoji {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .philosophy-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+
+        .philosophy-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 0;
+            border-top: 1px solid #222;
+        }
+
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .faq-item h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+
+        .faq-item p {
             color: var(--text-muted);
             font-size: 0.9rem;
+            line-height: 1.6;
         }
 
         /* Support Section */
@@ -296,10 +340,61 @@
             margin: 0 auto 16px;
         }
 
-        .sponsor-embed {
-            margin-top: 32px;
+        .sponsor-button {
+            display: inline-block;
+            margin-top: 24px;
+            padding: 14px 32px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .sponsor-button:hover {
+            background: var(--accent-hover);
+        }
+
+        .crypto-section {
+            margin-top: 24px;
+        }
+
+        .crypto-grid {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .crypto-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            padding: 12px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .crypto-item:hover {
+            border-color: var(--accent);
+        }
+
+        .crypto-label {
+            font-weight: 600;
+            color: var(--accent);
+            min-width: 40px;
+        }
+
+        .crypto-addr {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            word-break: break-all;
         }
 
         /* Footer */
@@ -374,12 +469,12 @@
         <section class="hero">
             <div class="container">
                 <h1>SaneApps</h1>
-                <p class="tagline">Open source macOS utilities that respect your privacy. No telemetry, no subscriptions, no corporate BS.</p>
+                <p class="tagline">Open source macOS utilities that respect your privacy. No telemetry, no subscriptions, no spying.</p>
                 <div class="badges">
-                    <span class="badge green">100% Open Source</span>
-                    <span class="badge">Zero Telemetry</span>
-                    <span class="badge">Native Swift</span>
-                    <span class="badge">No Subscriptions</span>
+                    <span class="badge accent">🔓 Open Source</span>
+                    <span class="badge accent">🔒 Zero Telemetry</span>
+                    <span class="badge accent">⚡ Native Swift</span>
+                    <span class="badge accent">💵 $5 Once, Yours Forever</span>
                 </div>
             </div>
         </section>
@@ -397,8 +492,7 @@
                         </div>
                         <p class="app-desc">Clean up your menu bar. Hide icons you don't need, reveal them with a click. The open source alternative to Bartender. <strong>$5 one-time</strong> or build from source.</p>
                         <div class="app-links">
-                            <a href="https://github.com/sane-apps/SaneBar">GitHub &rarr;</a>
-                            <a href="https://sanebar.saneapps.com">Get SaneBar — $5 &rarr;</a>
+                            <a href="https://sanebar.com">Get SaneBar &rarr;</a>
                         </div>
                     </div>
 
@@ -411,61 +505,59 @@
                         </div>
                         <p class="app-desc">Clipboard manager that keeps your copy history private. Search, pin, and organize everything you copy.</p>
                         <div class="app-links">
-                            <a href="https://saneclip.com">Website &rarr;</a>
-                            <a href="https://github.com/sane-apps/SaneClip">GitHub &rarr;</a>
+                            <a href="https://saneclip.com">Get SaneClip &rarr;</a>
                         </div>
                     </div>
 
                     <!-- SaneHosts -->
-                    <div class="app-card">
+                    <div class="app-card featured">
                         <div class="app-header">
-                            <img src="icons/sanehosts-icon.svg" alt="SaneHosts" class="app-icon">
+                            <img src="icons/sanehosts-icon.png" alt="SaneHosts" class="app-icon">
                             <span class="app-name">SaneHosts</span>
-                            <span class="app-status soon">Coming Soon</span>
+                            <span class="app-status live">Live</span>
                         </div>
-                        <p class="app-desc">Manage your /etc/hosts file with a clean UI. Block ads, trackers, and distractions at the system level.</p>
+                        <p class="app-desc">Block ads, trackers, and distractions at the system level. Manage your hosts file with a clean UI.</p>
                         <div class="app-links">
-                            <a href="https://github.com/sane-apps/SaneHosts">GitHub &rarr;</a>
+                            <a href="https://sanehosts.com">Get SaneHosts &rarr;</a>
                         </div>
                     </div>
 
                     <!-- SaneSync -->
                     <div class="app-card">
                         <div class="app-header">
-                            <img src="icons/sanesync-icon.svg" alt="SaneSync" class="app-icon">
+                            <img src="icons/sanesync-icon.png" alt="SaneSync" class="app-icon">
                             <span class="app-name">SaneSync</span>
                             <span class="app-status soon">Coming Soon</span>
                         </div>
-                        <p class="app-desc">Sync your files without the cloud. Direct device-to-device sync that doesn't phone home.</p>
+                        <p class="app-desc">Sync your files without the cloud. Direct device-to-device sync that doesn't spy on you.</p>
                         <div class="app-links">
-                            <a href="https://sanesync.com">Website &rarr;</a>
-                            <a href="https://github.com/sane-apps/SaneSync">GitHub &rarr;</a>
+                            <span style="color: var(--text-muted);">Coming soon</span>
                         </div>
                     </div>
 
                     <!-- SaneVideo -->
                     <div class="app-card">
                         <div class="app-header">
-                            <img src="icons/sanevideo-icon.svg" alt="SaneVideo" class="app-icon">
+                            <img src="icons/sanevideo-icon.png" alt="SaneVideo" class="app-icon">
                             <span class="app-name">SaneVideo</span>
                             <span class="app-status soon">Coming Soon</span>
                         </div>
                         <p class="app-desc">Local video processing and transcription. Your footage never leaves your Mac.</p>
                         <div class="app-links">
-                            <a href="https://github.com/sane-apps">GitHub &rarr;</a>
+                            <span style="color: var(--text-muted);">Coming soon</span>
                         </div>
                     </div>
 
-                    <!-- SaneScript -->
+                    <!-- SaneClick -->
                     <div class="app-card">
                         <div class="app-header">
-                            <img src="icons/sanescript-icon.svg" alt="SaneScript" class="app-icon">
-                            <span class="app-name">SaneScript</span>
+                            <img src="icons/saneclick-icon.png" alt="SaneClick" class="app-icon">
+                            <span class="app-name">SaneClick</span>
                             <span class="app-status soon">Coming Soon</span>
                         </div>
-                        <p class="app-desc">AppleScript and automation made simple. Control your Mac without the complexity.</p>
+                        <p class="app-desc">Right-click power tools for Finder. Resize images, convert files, run scripts — all from context menus.</p>
                         <div class="app-links">
-                            <a href="https://github.com/sane-apps/SaneScript">GitHub &rarr;</a>
+                            <span style="color: var(--text-muted);">Coming soon</span>
                         </div>
                     </div>
                 </div>
@@ -474,22 +566,47 @@
 
         <section class="philosophy">
             <div class="container">
+                <h2 class="section-title">Our Philosophy</h2>
+                <p style="text-align: center; font-style: italic; color: var(--text-muted); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">"For God has not given us a spirit of fear, but of power and of love and of a sound mind." — 2 Timothy 1:7</p>
                 <div class="philosophy-grid">
-                    <div class="philosophy-item">
-                        <h3>Privacy First</h3>
-                        <p>No analytics. No tracking. No "anonymous" telemetry. Your data stays on your device.</p>
+                    <div class="philosophy-card">
+                        <span class="philosophy-emoji">⚡</span>
+                        <h3>Power</h3>
+                        <p>Your data stays on your device. No cloud lock-in. No spying. You're in control.</p>
                     </div>
-                    <div class="philosophy-item">
-                        <h3>Open Source</h3>
-                        <p>Every line of code is on GitHub. Audit it, fork it, improve it.</p>
+                    <div class="philosophy-card">
+                        <span class="philosophy-emoji">❤️</span>
+                        <h3>Love</h3>
+                        <p>Built to serve, not extract. No dark patterns. No manipulation. Just useful software.</p>
                     </div>
-                    <div class="philosophy-item">
-                        <h3>Native Performance</h3>
-                        <p>Built with Swift and AppKit. No Electron bloat eating your RAM.</p>
+                    <div class="philosophy-card">
+                        <span class="philosophy-emoji">🧠</span>
+                        <h3>Sound Mind</h3>
+                        <p>Clean, calm interfaces. No clutter, no anxiety. Software that helps you focus.</p>
                     </div>
-                    <div class="philosophy-item">
-                        <h3>Indie Made</h3>
-                        <p>One developer, no VC money, no acquisition exit strategy. Just useful software.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="faq-section" id="faq">
+            <div class="container">
+                <h2 class="section-title">FAQ</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3>💵 Why $5 if it's open source?</h3>
+                        <p>Open source dies without support. Your $5 keeps these apps maintained, updated, and independent. No investors. No ads. No selling out.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🛠️ Can I build it myself?</h3>
+                        <p>Yes! Clone the repo, build with Xcode. MIT licensed, always will be. The $5 is for a signed, notarized DMG and supporting continued development.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🔒 Do you collect any data?</h3>
+                        <p>No. Zero telemetry. Zero analytics. Zero "anonymous" anything. Your Mac, your data. Check the source code yourself.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>🤝 Why should I trust you?</h3>
+                        <p>Every line of code is on GitHub. No cloud. No accounts. No network calls. Verify it yourself — that's the point of open source.</p>
                     </div>
                 </div>
             </div>
@@ -497,25 +614,52 @@
 
         <section class="support-section">
             <div class="container">
-                <h2 class="section-title">Support Indie Software</h2>
-                <p class="support-text">These apps are free, open source, and built by one person. No VC funding, no corporate backing — just me, trying to make software that doesn't suck.</p>
-                <p class="support-text">If these tools save you time or make your Mac better, consider sponsoring.</p>
-                <div class="sponsor-embed">
-                    <iframe src="https://github.com/sponsors/stephanjoseph/card" title="Sponsor stephanjoseph" height="225" width="600" style="border: 0; border-radius: 12px; max-width: 100%;"></iframe>
+                <p style="font-style: italic; color: var(--text-muted); margin-bottom: 24px;">"The worker is worthy of his wages." — 1 Timothy 5:18</p>
+                <h2 class="section-title">Support Sustainable Open Source</h2>
+                <p class="support-text">No Big Tech. No investors. No ads. No spying. Just software that respects your privacy.</p>
+                <p class="support-text">Thank you. — Mr. Sane</p>
+                <a href="https://github.com/sponsors/stephanjoseph" class="sponsor-button">❤️ Sponsor on GitHub</a>
+
+                <div class="crypto-section">
+                    <p style="color: var(--text-muted); margin: 32px 0 16px; font-size: 0.9rem;">Or donate with crypto:</p>
+                    <div class="crypto-grid">
+                        <div class="crypto-item" onclick="copyToClipboard('3Go9nJu3dj2qaa4EAYXrTsTf5AnhcrPQke')">
+                            <span class="crypto-label">BTC</span>
+                            <code class="crypto-addr">3Go9nJu3dj2qaa4EAYXrTsTf5AnhcrPQke</code>
+                        </div>
+                        <div class="crypto-item" onclick="copyToClipboard('0x026668feA51c27F0803055B8c0d881ac2F1e7C3e')">
+                            <span class="crypto-label">ETH</span>
+                            <code class="crypto-addr">0x026668feA51c27F0803055B8c0d881ac2F1e7C3e</code>
+                        </div>
+                        <div class="crypto-item" onclick="copyToClipboard('FBvU83GUmwEYk3HMwZh3GBorGvrVVWSPb8VLCKeLiWZZ')">
+                            <span class="crypto-label">SOL</span>
+                            <code class="crypto-addr">FBvU83GUmwEYk3HMwZh3GBorGvrVVWSPb8VLCKeLiWZZ</code>
+                        </div>
+                    </div>
+                    <p style="color: var(--accent); font-size: 0.85rem; margin-top: 12px;">Click to copy</p>
                 </div>
             </div>
         </section>
+
+        <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text);
+            const items = document.querySelectorAll('.crypto-item');
+            items.forEach(i => i.style.opacity = '0.5');
+            event.currentTarget.style.opacity = '1';
+            setTimeout(() => items.forEach(i => i.style.opacity = '1'), 1500);
+        }
+        </script>
     </main>
 
     <footer>
         <div class="container">
-            <p>Made with care by <a href="https://github.com/stephanjoseph">Mr. Sane</a></p>
+            <p>❤️ <a href="https://github.com/stephanjoseph">Mr. Sane</a> | Made in USA</p>
             <div class="footer-links">
                 <a href="mailto:hi@saneapps.com">hi@saneapps.com</a>
                 <a href="https://github.com/sane-apps">GitHub</a>
                 <a href="https://github.com/sponsors/stephanjoseph">Sponsor</a>
             </div>
-            <p style="margin-top: 16px; font-style: italic;">"The worker is worthy of his wages." — 1 Timothy 5:18</p>
         </div>
     </footer>
 </body>
