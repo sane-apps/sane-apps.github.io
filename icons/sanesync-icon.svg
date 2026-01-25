@@ -1,54 +1,29 @@
 <svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <!-- Background gradient matching SaneBar -->
     <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" style="stop-color:#1a2744"/>
       <stop offset="100%" style="stop-color:#0d1525"/>
     </linearGradient>
 
-    <!-- Glow filter -->
+    <!-- SaneClip-level glow -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
       <feMerge>
-        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
   </defs>
 
-  <!-- Background -->
   <rect width="512" height="512" fill="url(#bgGradient)"/>
 
-  <!-- Simple circular arrows - two separate curved arrows -->
   <g filter="url(#glow)">
-    <!-- Top arrow (curves from right to left at top) -->
-    <path d="M 340 200
-             A 90 90 0 0 0 172 200"
-          fill="none"
-          stroke="#5fa8d3"
-          stroke-width="32"
-          stroke-linecap="round"/>
-    <!-- Top arrowhead pointing left -->
-    <path d="M 200 165 L 172 200 L 207 228"
-          fill="none"
-          stroke="#5fa8d3"
-          stroke-width="32"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
-
-    <!-- Bottom arrow (curves from left to right at bottom) -->
-    <path d="M 172 312
-             A 90 90 0 0 0 340 312"
-          fill="none"
-          stroke="#5fa8d3"
-          stroke-width="32"
-          stroke-linecap="round"/>
-    <!-- Bottom arrowhead pointing right -->
-    <path d="M 312 347 L 340 312 L 305 284"
-          fill="none"
-          stroke="#5fa8d3"
-          stroke-width="32"
-          stroke-linecap="round"
-          stroke-linejoin="round"/>
+    <path d="M 340 195 A 95 95 0 0 0 172 195" fill="none" stroke="#5fa8d3" stroke-width="12" stroke-linecap="round"/>
+    <polygon points="172,160 155,200 190,200" fill="#5fa8d3"/>
+    <path d="M 172 317 A 95 95 0 0 0 340 317" fill="none" stroke="#5fa8d3" stroke-width="12" stroke-linecap="round"/>
+    <polygon points="340,352 357,312 322,312" fill="#5fa8d3"/>
   </g>
 </svg>

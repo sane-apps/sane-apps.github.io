@@ -5,12 +5,9 @@
       <stop offset="100%" style="stop-color:#0d1525"/>
     </linearGradient>
 
-    <!-- SaneClip-level glow -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="12" result="blur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur"/>
       <feMerge>
-        <feMergeNode in="blur"/>
-        <feMergeNode in="blur"/>
         <feMergeNode in="blur"/>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
@@ -21,7 +18,8 @@
   <rect width="512" height="512" fill="url(#bgGradient)"/>
 
   <g filter="url(#glow)">
-    <path d="M 130 155 L 215 256 L 130 357" fill="none" stroke="#5fa8d3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M 260 155 L 345 256 L 260 357" fill="none" stroke="#5fa8d3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="120" y="155" width="272" height="34" rx="17" fill="#5fa8d3"/>
+    <rect x="120" y="239" width="220" height="34" rx="17" fill="#5fa8d3"/>
+    <rect x="120" y="323" width="160" height="34" rx="17" fill="#5fa8d3"/>
   </g>
 </svg>

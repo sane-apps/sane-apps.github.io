@@ -21,7 +21,8 @@
   <rect width="512" height="512" fill="url(#bgGradient)"/>
 
   <g filter="url(#glow)">
-    <path d="M 130 155 L 215 256 L 130 357" fill="none" stroke="#5fa8d3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M 260 155 L 345 256 L 260 357" fill="none" stroke="#5fa8d3" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 175 155 L 100 256 L 175 357" fill="none" stroke="#5fa8d3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M 337 155 L 412 256 L 337 357" fill="none" stroke="#5fa8d3" stroke-width="12" stroke-linecap="round" stroke-linejoin="round"/>
+    <line x1="290" y1="140" x2="222" y2="372" stroke="#5fa8d3" stroke-width="12" stroke-linecap="round"/>
   </g>
 </svg>
