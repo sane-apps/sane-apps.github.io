@@ -18,8 +18,8 @@
   <rect width="512" height="512" fill="url(#bgGradient)"/>
 
   <g filter="url(#glow)">
-    <rect x="120" y="155" width="272" height="34" rx="17" fill="#5fa8d3"/>
-    <rect x="120" y="239" width="220" height="34" rx="17" fill="#5fa8d3"/>
-    <rect x="120" y="323" width="160" height="34" rx="17" fill="#5fa8d3"/>
+    <rect x="120" y="155" width="272" height="34" rx="17" fill="#5CE8FF"/>
+    <rect x="146" y="239" width="220" height="34" rx="17" fill="#5CE8FF"/>
+    <rect x="176" y="323" width="160" height="34" rx="17" fill="#5CE8FF"/>
   </g>
 </svg>
