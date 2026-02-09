@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Primary Meta Tags -->
+    <title>Mac Guides — Privacy, Productivity & Automation | SaneApps</title>
+    <meta name="title" content="Mac Guides — Privacy, Productivity & Automation | SaneApps">
+    <meta name="description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and right-click menu. Open source tools, no subscriptions.">
+    <meta name="keywords" content="macOS guides, menu bar manager, clipboard manager, hosts file, ad blocker, Mac privacy, open source Mac apps, Bartender alternative">
+    <meta name="author" content="Mr. Sane">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08080c">
+    <link rel="canonical" href="https://saneapps.com/guides.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://saneapps.com/guides.html">
+    <meta property="og:title" content="Mac Guides — Privacy, Productivity & Automation">
+    <meta property="og:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Open source tools, no subscriptions.">
+    <meta property="og:image" content="https://saneapps.com/og-image.png">
+    <meta property="og:image:alt" content="SaneApps Guides - Open Source macOS Utilities">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="SaneApps">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://saneapps.com/guides.html">
+    <meta name="twitter:title" content="Mac Guides — Privacy, Productivity & Automation">
+    <meta name="twitter:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Open source, no subscriptions.">
+    <meta name="twitter:image" content="https://saneapps.com/og-image.png">
+    <meta name="twitter:site" content="@saneapps">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": "SaneApps Guides",
+        "description": "Free guides for managing your Mac's menu bar, clipboard, hosts file, and right-click menu.",
+        "url": "https://saneapps.com/guides.html",
+        "publisher": {
+            "@type": "Organization",
+            "name": "SaneApps",
+            "url": "https://saneapps.com"
+        }
+    }
+    </script>
+    <style>
+        :root {
+            --bg: #08080c;
+            --bg-secondary: #0f0f16;
+            --card-bg: #16161f;
+            --text: #f5f5f8;
+            --text-muted: #d8d8e8;
+            --text-dim: #c0c0d0;
+            --accent: #5CE8FF;
+            --accent-hover: #7eedff;
+            --accent-glow: rgba(92, 232, 255, 0.2);
+            --green: #34d399;
+            --green-soft: rgba(52, 211, 153, 0.15);
+            --border: #252530;
+            --border-subtle: #1e1e28;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Roboto, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        .gradient-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(ellipse at 20% 15%, rgba(92, 232, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 85%, rgba(92, 232, 255, 0.06) 0%, transparent 50%),
+                var(--bg);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* Header */
+        header {
+            padding: 20px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            background: rgba(8, 8, 12, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-left: 32px;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        nav a.active {
+            color: var(--accent);
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+            z-index: 200;
+            color: var(--text);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(8, 8, 12, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 150;
+            padding: 80px 32px 40px;
+            overflow-y: auto;
+            flex-direction: column;
+        }
+
+        .mobile-nav.open { display: flex; }
+
+        .mobile-nav a {
+            display: block;
+            padding: 16px 0;
+            color: var(--text);
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 500;
+            border-bottom: 1px solid var(--border);
+            transition: color 0.2s;
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 24px;
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 8px;
+            font-size: 1.5rem;
+            line-height: 1;
+            z-index: 200;
+        }
+
+        /* Hero */
+        .hero {
+            padding: 140px 0 48px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 600;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 560px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        /* Section */
+        .guide-section {
+            padding: 48px 0 24px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .section-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            flex-shrink: 0;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+        }
+
+        .section-header p {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-left: auto;
+        }
+
+        /* Guide Cards */
+        .guides-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 20px;
+        }
+
+        .guide-card {
+            background: linear-gradient(145deg, var(--card-bg) 0%, var(--bg-secondary) 100%);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            position: relative;
+        }
+
+        .guide-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(92, 232, 255, 0.1);
+        }
+
+        .guide-card .app-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .guide-card .app-badge img {
+            width: 18px;
+            height: 18px;
+            border-radius: 4px;
+        }
+
+        .guide-card h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            color: var(--text);
+        }
+
+        .guide-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .guide-card .read-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 16px;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: gap 0.2s;
+        }
+
+        .guide-card:hover .read-more {
+            gap: 10px;
+        }
+
+        /* CTA */
+        .cta-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.5rem, 4vw, 2rem);
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .cta-section h2 em {
+            font-style: italic;
+            color: var(--accent);
+        }
+
+        .cta-section p {
+            color: var(--text-muted);
+            max-width: 520px;
+            margin: 0 auto 32px;
+            font-size: 1rem;
+        }
+
+        .app-links-row {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .app-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 24px;
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s;
+        }
+
+        .app-link:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .app-link img {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border-subtle);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-dim);
+            font-size: 0.85rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-links {
+            margin-top: 16px;
+        }
+
+        .footer-links a {
+            color: var(--text-muted);
+            margin: 0 12px;
+            font-size: 0.85rem;
+        }
+
+        .footer-links a:hover {
+            color: var(--text);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.25rem; }
+            .guides-grid { grid-template-columns: 1fr; }
+            nav { display: none; }
+            .hamburger { display: block; }
+            .section-header { flex-wrap: wrap; }
+            .section-header p { margin-left: 0; margin-top: 4px; width: 100%; }
+        }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+
+    <header>
+        <div class="container header-content">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="SaneApps">
+                <span class="logo-text">SaneApps</span>
+            </a>
+
+            <nav>
+                <a href="/">Apps</a>
+                <a href="guides.html" class="active">Guides</a>
+                <a href="https://github.com/sane-apps">GitHub</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+            </nav>
+
+            <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+            </button>
+        </div>
+    </header>
+
+    <div id="mobileNav" class="mobile-nav">
+        <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Close menu">&times;</button>
+        <a href="/" onclick="toggleMobileNav()">Apps</a>
+        <a href="guides.html" onclick="toggleMobileNav()">Guides</a>
+        <a href="https://github.com/sane-apps" onclick="toggleMobileNav()">GitHub</a>
+        <a href="mailto:hi@saneapps.com" onclick="toggleMobileNav()">Contact</a>
+    </div>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>Mac Guides for a <em>Saner</em> Workflow</h1>
+                <p class="tagline">Step-by-step tutorials for cleaning up your Mac, protecting your privacy, and getting more done. All free, all open source.</p>
+            </div>
+        </section>
+
+        <!-- Clean Up Your Mac -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F9F9;</div>
+                    <h2>Clean Up Your Mac</h2>
+                    <p>Tame the clutter</p>
+                </div>
+                <div class="guides-grid">
+                    <a href="https://sanebar.com/how-to-hide-menu-bar-icons-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanebar-icon.png" alt=""> SaneBar</div>
+                        <h3>How to Hide Menu Bar Icons on Mac</h3>
+                        <p>Learn to hide and organize cluttered menu bar icons on macOS. Clean workspace in seconds.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanebar.com/how-to-reorder-menu-bar-icons-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanebar-icon.png" alt=""> SaneBar</div>
+                        <h3>How to Reorder Menu Bar Icons on Mac</h3>
+                        <p>Drag and drop to reorder your Mac's menu bar icons. Organize your workspace your way.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://saneclip.com/how-to-see-clipboard-history-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclip-icon.png" alt=""> SaneClip</div>
+                        <h3>How to See Clipboard History on Mac</h3>
+                        <p>Access everything you've copied. Manual method vs. clipboard manager compared.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Protect Your Privacy -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F512;</div>
+                    <h2>Protect Your Privacy</h2>
+                    <p>Take back control</p>
+                </div>
+                <div class="guides-grid">
+                    <a href="https://sanebar.com/how-to-lock-menu-bar-icons-touch-id.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanebar-icon.png" alt=""> SaneBar</div>
+                        <h3>How to Lock Menu Bar Icons with Touch ID</h3>
+                        <p>Protect sensitive menu bar icons behind biometric security. Only SaneBar offers this.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://saneclip.com/how-to-protect-clipboard-history-touch-id-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclip-icon.png" alt=""> SaneClip</div>
+                        <h3>How to Lock Clipboard History with Touch ID</h3>
+                        <p>Secure your private clipboard data with biometric protection on macOS.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-telemetry.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Telemetry on Mac</h3>
+                        <p>Stop macOS, apps, and services from tracking you. Block telemetry at the DNS level.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-adobe.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Adobe Telemetry on Mac</h3>
+                        <p>Stop Adobe Creative Cloud from phoning home. Block background processes at the system level.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Boost Productivity -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">&#x26A1;</div>
+                    <h2>Boost Productivity</h2>
+                    <p>Work faster, not harder</p>
+                </div>
+                <div class="guides-grid">
+                    <a href="https://saneclip.com/how-to-paste-multiple-items-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclip-icon.png" alt=""> SaneClip</div>
+                        <h3>How to Paste Multiple Items on Mac</h3>
+                        <p>Copy multiple items and paste them in sequence without switching apps.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://saneclip.com/how-to-pin-text-snippets-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclip-icon.png" alt=""> SaneClip</div>
+                        <h3>How to Pin Text Snippets on Mac</h3>
+                        <p>Stop using Notes for snippets. Pin frequently used text directly to your clipboard menu.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://saneclip.com/how-to-transform-text-case-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclip-icon.png" alt=""> SaneClip</div>
+                        <h3>How to Convert Text Case on Mac</h3>
+                        <p>Transform text to UPPERCASE, lowercase, or Title Case instantly without insecure online tools.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanebar.com/how-to-automate-menu-bar-icons-applescript.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanebar-icon.png" alt=""> SaneBar</div>
+                        <h3>How to Automate Menu Bar Icons with AppleScript</h3>
+                        <p>Control your menu bar programmatically with AppleScript, Raycast, Alfred, and Shortcuts.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://saneclick.com/how-to-add-scripts-finder-context-menu-mac.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/saneclick-icon.png" alt=""> SaneClick</div>
+                        <h3>How to Add Scripts to Mac Right-Click Menu</h3>
+                        <p>Run Bash, Python, or AppleScript directly from the Finder context menu. Automator vs SaneClick compared.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Block Distractions -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">&#x1F6E1;&#xFE0F;</div>
+                    <h2>Block Ads &amp; Distractions</h2>
+                    <p>System-wide, no extensions</p>
+                </div>
+                <div class="guides-grid">
+                    <a href="https://sanehosts.com/block-social-media.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Social Media on Mac</h3>
+                        <p>Reduce distractions by blocking Twitter, Reddit, TikTok, and more at the system level.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-malware.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Turn Your Hosts File into a Malware Firewall</h3>
+                        <p>Block C&amp;C servers system-wide. Manual vs. Antivirus vs. hosts file approach.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-gambling.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Gambling Sites on Mac</h3>
+                        <p>System-wide protection. Block addictive gambling sites without browser extensions.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-fake-news.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Fake News on Mac</h3>
+                        <p>Pre-curated blocklist to filter misinformation sources at the DNS level.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                    <a href="https://sanehosts.com/block-porn.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>How to Block Adult Content on Mac</h3>
+                        <p>Parental controls: block adult websites system-wide on macOS. No browser extensions needed.</p>
+                        <span class="read-more">Read guide &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Compare Alternatives -->
+        <section class="guide-section">
+            <div class="container">
+                <div class="section-header">
+                    <div class="section-icon">&#x2696;&#xFE0F;</div>
+                    <h2>Compare Alternatives</h2>
+                    <p>Make informed choices</p>
+                </div>
+                <div class="guides-grid">
+                    <a href="https://sanehosts.com/gas-mask-alternative.html" class="guide-card">
+                        <div class="app-badge"><img src="icons/sanehosts-icon.png" alt=""> SaneHosts</div>
+                        <h3>SaneHosts vs Gas Mask &mdash; Hosts File Manager Comparison</h3>
+                        <p>Looking for a Gas Mask alternative? Feature-by-feature comparison for macOS hosts file management.</p>
+                        <span class="read-more">Read comparison &rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Try the <em>Apps</em></h2>
+                <p>Every guide is based on real tools you can use today. Open source, $5 or free to build.</p>
+                <div class="app-links-row">
+                    <a href="https://sanebar.com" class="app-link">
+                        <img src="icons/sanebar-icon.png" alt="SaneBar"> SaneBar
+                    </a>
+                    <a href="https://saneclip.com" class="app-link">
+                        <img src="icons/saneclip-icon.png" alt="SaneClip"> SaneClip
+                    </a>
+                    <a href="https://sanehosts.com" class="app-link">
+                        <img src="icons/sanehosts-icon.png" alt="SaneHosts"> SaneHosts
+                    </a>
+                    <a href="https://saneclick.com" class="app-link">
+                        <img src="icons/saneclick-icon.png" alt="SaneClick"> SaneClick
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p style="font-style: italic; color: var(--text-dim); margin-bottom: 20px; opacity: 0.85;">"For God has not given us a spirit of fear, but of power, love, and a sound mind." &mdash; 2 Timothy 1:7</p>
+            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 16px;"><strong>0% Telemetry</strong>. <strong>0% Spying</strong>. <strong>100% On-Device</strong>.</p>
+            <div class="footer-links">
+                <a href="/">Apps</a>
+                <a href="guides.html">Guides</a>
+                <a href="https://github.com/sane-apps">GitHub</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+                <a href="https://github.com/sponsors/MrSaneApps">Sponsor</a>
+            </div>
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 16px;">Made with care by <a href="https://github.com/MrSaneApps" style="color: var(--accent); text-decoration: none;">Mr. Sane</a> &nbsp;&middot;&nbsp; &copy; 2026 SaneApps</p>
+        </div>
+    </footer>
+
+    <script>
+    function toggleMobileNav() {
+        var nav = document.getElementById('mobileNav');
+        nav.classList.toggle('open');
+        document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    }
+    </script>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cbd53694e0654329ae1436b06f70a9b4"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
