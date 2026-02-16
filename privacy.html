@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - SaneApps</title>
+    <meta name="description" content="SaneApps collects zero data. No accounts, no analytics, no telemetry. Your data stays on your Mac.">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#08080c">
+    <link rel="canonical" href="https://saneapps.com/privacy.html">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="apple-touch-icon" href="favicon.png">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Privacy Policy - SaneApps">
+    <meta property="og:description" content="SaneApps collects zero data. No accounts, no analytics, no telemetry.">
+    <meta property="og:url" content="https://saneapps.com/privacy.html">
+    <meta property="og:site_name" content="SaneApps">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #08080c; --bg-secondary: #0f0f16; --card-bg: #16161f;
+            --text: #f5f5f8; --text-muted: #d8d8e8; --text-dim: #c0c0d0;
+            --accent: #5CE8FF; --border: #252530; --border-subtle: #1e1e28;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg); color: var(--text); line-height: 1.7; min-height: 100vh;
+        }
+        .gradient-bg {
+            position: fixed; top: 0; left: 0; right: 0; bottom: 0;
+            background: radial-gradient(ellipse at 20% 15%, rgba(92, 232, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(ellipse at 80% 85%, rgba(92, 232, 255, 0.06) 0%, transparent 50%), var(--bg);
+            pointer-events: none; z-index: -1;
+        }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 24px; }
+        header {
+            padding: 20px 0; position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+            background: rgba(8, 8, 12, 0.85); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo img { width: 40px; height: 40px; border-radius: 50%; }
+        .logo-text { font-size: 1.5rem; font-weight: 700; color: var(--text); }
+        nav { display: flex; align-items: center; }
+        nav a { color: var(--text-muted); text-decoration: none; margin-left: 32px; font-size: 0.95rem; transition: color 0.2s; }
+        nav a:hover { color: var(--text); }
+        main { padding: 140px 0 60px; }
+        h1 { font-family: 'Playfair Display', Georgia, serif; font-size: 2.5rem; font-weight: 600; margin-bottom: 8px; letter-spacing: -0.02em; }
+        .last-updated { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 40px; }
+        h2 { font-size: 1.25rem; font-weight: 600; margin: 32px 0 12px; color: var(--text); }
+        p, li { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 16px; }
+        ul { padding-left: 24px; margin-bottom: 16px; }
+        li { margin-bottom: 8px; }
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+        .highlight {
+            background: var(--card-bg); border: 1px solid var(--border-subtle); border-radius: 12px;
+            padding: 24px; margin: 24px 0;
+        }
+        .highlight p { margin-bottom: 0; }
+        footer { padding: 40px 0; border-top: 1px solid var(--border-subtle); text-align: center; }
+        footer p { color: var(--text-dim); font-size: 0.85rem; }
+        footer a { color: var(--accent); text-decoration: none; }
+        .footer-links { margin-top: 16px; }
+        .footer-links a { color: var(--text-muted); margin: 0 12px; font-size: 0.85rem; }
+        .footer-links a:hover { color: var(--text); }
+    </style>
+</head>
+<body>
+    <div class="gradient-bg"></div>
+    <header>
+        <div class="header-content">
+            <a href="/" class="logo">
+                <img src="logo.png" alt="SaneApps">
+                <span class="logo-text">SaneApps</span>
+            </a>
+            <nav>
+                <a href="/">Apps</a>
+                <a href="guides.html">Guides</a>
+                <a href="https://github.com/sane-apps">GitHub</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: January 31, 2026</p>
+
+            <div class="highlight">
+                <p><strong>The short version:</strong> SaneApps collects zero data. No accounts. No analytics. No telemetry. No network calls. Everything stays on your Mac.</p>
+            </div>
+
+            <h2>What SaneApps Collects</h2>
+            <p>Nothing. SaneApps applications make zero network requests. They do not phone home, track usage, collect crash reports, or communicate with any server. You can verify this yourself &mdash; the source code is on <a href="https://github.com/sane-apps">GitHub</a>.</p>
+
+            <h2>Individual App Policies</h2>
+            <p>Each app has its own privacy policy with specific details:</p>
+            <ul>
+                <li><a href="https://sanebar.com/privacy.html">SaneBar Privacy Policy</a></li>
+                <li><a href="https://saneclip.com/privacy.html">SaneClip Privacy Policy</a></li>
+                <li><a href="https://saneclick.com/privacy.html">SaneClick Privacy Policy</a></li>
+                <li><a href="https://sanehosts.com/privacy.html">SaneHosts Privacy Policy</a></li>
+            </ul>
+
+            <h2>Purchases</h2>
+            <p>DMG purchases are processed by <a href="https://www.lemonsqueezy.com">Lemon Squeezy</a> (Merchant of Record). I receive your email address for order fulfillment. I do not store payment information. Lemon Squeezy's <a href="https://www.lemonsqueezy.com/privacy">privacy policy</a> governs transaction data.</p>
+
+            <h2>Websites</h2>
+            <p>The SaneApps websites (saneapps.com, sanebar.com, saneclip.com, saneclick.com, sanehosts.com) are static HTML hosted on Cloudflare Pages. I do not use cookies, analytics scripts, or tracking pixels. Cloudflare may collect standard server logs (IP address, browser type) as part of their infrastructure &mdash; see <a href="https://www.cloudflare.com/privacypolicy/">Cloudflare's privacy policy</a>.</p>
+
+            <h2>Email</h2>
+            <p>If you email me at <a href="mailto:hi@saneapps.com">hi@saneapps.com</a>, I'll use your email only to respond. I don't add you to any mailing list.</p>
+
+            <h2>Updates</h2>
+            <p>SaneApps use <a href="https://sparkle-project.org">Sparkle</a> for in-app updates. Sparkle checks for updates by fetching an appcast XML file from the SaneApps server. This request includes your app version and macOS version. No personal data is transmitted. You can disable update checks in each app's settings.</p>
+
+            <h2>Changes</h2>
+            <p>If this policy changes, I'll update this page. The date at the top reflects the latest revision.</p>
+
+            <h2>Contact</h2>
+            <p>Questions about privacy? Email <a href="mailto:hi@saneapps.com">hi@saneapps.com</a>.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="/">Apps</a>
+                <a href="guides.html">Guides</a>
+                <a href="terms.html">Terms</a>
+                <a href="https://github.com/sane-apps">GitHub</a>
+                <a href="mailto:hi@saneapps.com">Contact</a>
+            </div>
+            <p style="margin-top: 16px;">&copy; 2026 SaneApps</p>
+        </div>
+    </footer>
+    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cbd53694e0654329ae1436b06f70a9b4"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
