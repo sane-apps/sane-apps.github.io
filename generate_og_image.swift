@@ -132,7 +132,7 @@ drawCenteredText("SaneApps", y: 265, fontSize: 52, color: titleColor, weight: .b
 
 // Tagline
 let taglineColor = CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 1.0) // #5fa8d3
-drawCenteredText("Open Source macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
+drawCenteredText("100% Transparent Code macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
 
 // Subtitle
 let subtitleColor = CGColor(red: 0.75, green: 0.75, blue: 0.82, alpha: 1.0) // muted
@@ -158,7 +158,7 @@ ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.6))
 ctx.fill(CGRect(x: 400, y: 520, width: 400, height: 2))
 
 // Bottom text
-drawCenteredText("$5 Once, Yours Forever", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
+drawCenteredText("$6.99 Once, Yours Forever", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
 
 // Bottom border accent
 ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.8))
@@ -176,6 +176,7 @@ guard let dest = CGImageDestinationCreateWithURL(url as CFURL, "public.png" as C
     print("Failed to create destination")
     exit(1)
 }
+
 CGImageDestinationAddImage(dest, image, nil)
 CGImageDestinationFinalize(dest)
 print("OG image saved to \(outputPath)")
