@@ -7,8 +7,8 @@
     <!-- Primary Meta Tags -->
     <title>Mac Guides — Privacy, Productivity & Automation | SaneApps</title>
     <meta name="title" content="Mac Guides — Privacy, Productivity & Automation | SaneApps">
-    <meta name="description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and right-click menu. Transparent code tools, no subscriptions.">
-    <meta name="keywords" content="macOS guides, menu bar manager, clipboard manager, hosts file, ad blocker, Mac privacy, transparent code Mac apps, Bartender alternative">
+    <meta name="description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and right-click menu. Public code tools, no subscriptions.">
+    <meta name="keywords" content="macOS guides, menu bar manager, clipboard manager, hosts file, ad blocker, Mac privacy, public code Mac apps, Bartender alternative">
     <meta name="author" content="Mr. Sane">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#08080c">
@@ -18,9 +18,9 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://saneapps.com/guides.html">
     <meta property="og:title" content="Mac Guides — Privacy, Productivity & Automation">
-    <meta property="og:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Transparent code tools, no subscriptions.">
+    <meta property="og:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Public code tools, no subscriptions.">
     <meta property="og:image" content="https://saneapps.com/og-image.png">
-    <meta property="og:image:alt" content="SaneApps Guides - Transparent Code macOS Utilities">
+    <meta property="og:image:alt" content="SaneApps Guides - Public Code macOS Utilities">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="SaneApps">
@@ -30,7 +30,7 @@
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://saneapps.com/guides.html">
     <meta name="twitter:title" content="Mac Guides — Privacy, Productivity & Automation">
-    <meta name="twitter:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Transparent code, no subscriptions.">
+    <meta name="twitter:description" content="Free guides for managing your Mac's menu bar, clipboard, hosts file, and Finder. Public code, no subscriptions.">
     <meta name="twitter:image" content="https://saneapps.com/og-image.png">
     <meta name="twitter:site" content="@saneapps">
 
@@ -460,6 +460,142 @@
             .section-header { flex-wrap: wrap; }
             .section-header p { margin-left: 0; margin-top: 4px; width: 100%; }
         }
+    
+/* Mobile Guide Guardrails */
+@media (max-width: 768px) {
+    html {
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    body {
+        overflow-x: hidden;
+        font-size: 16px;
+        line-height: 1.65;
+    }
+
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    nav {
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    nav .container,
+    .nav-content,
+    .header-content {
+        gap: 10px;
+    }
+
+    .nav-links {
+        gap: 12px !important;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links a {
+        font-size: 0.88rem;
+        white-space: nowrap;
+    }
+
+    .btn-primary {
+        padding: 8px 14px;
+    }
+
+    .header,
+    .hero {
+        padding-top: 140px !important;
+    }
+
+    h1 {
+        font-size: clamp(1.9rem, 8.2vw, 2.45rem) !important;
+        line-height: 1.18;
+        letter-spacing: -0.015em;
+        text-wrap: balance;
+    }
+
+    h2 {
+        font-size: clamp(1.35rem, 5.9vw, 1.78rem) !important;
+        line-height: 1.24;
+        text-wrap: balance;
+    }
+
+    h3 {
+        font-size: clamp(1.08rem, 4.9vw, 1.34rem) !important;
+        line-height: 1.3;
+        text-wrap: balance;
+    }
+
+    p,
+    li {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        overflow-wrap: break-word;
+    }
+
+    article,
+    article.container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    .subtitle,
+    .tagline,
+    .header p,
+    .guide-card p,
+    .option-card p,
+    .support-text {
+        font-size: 0.98rem !important;
+        line-height: 1.65;
+        max-width: 68ch;
+    }
+
+    .guides-grid,
+    .apps-grid,
+    .faq-grid,
+    .pros-cons,
+    .comparison,
+    .highlight-content,
+    .sustainability-options {
+        grid-template-columns: 1fr !important;
+    }
+
+    .option-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    pre,
+    table,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        max-width: 100%;
+    }
+
+    pre,
+    .table-wrapper,
+    .comparison-table-wrapper,
+    .code-block {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    .code-block,
+    pre {
+        font-size: 0.82rem;
+    }
+}
+
+
     </style>
 </head>
 <body>
@@ -477,6 +613,10 @@
                 <a href="guides.html" class="active">Guides</a>
                 <a href="https://github.com/sane-apps">GitHub</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
+                <a href="https://github.com/sponsors/MrSaneApps" style="display: inline-flex; align-items: center; margin-left: 20px; padding: 9px 16px; border-radius: 10px; background: linear-gradient(135deg, #ea4aaa 0%, #db61a2 100%); color: #fff; font-weight: 600;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ffffff" stroke-width="1.5" style="margin-right: 6px;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                    Donate
+                </a>
             </nav>
 
             <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu">
@@ -491,13 +631,14 @@
         <a href="guides.html" onclick="toggleMobileNav()">Guides</a>
         <a href="https://github.com/sane-apps" onclick="toggleMobileNav()">GitHub</a>
         <a href="mailto:hi@saneapps.com" onclick="toggleMobileNav()">Contact</a>
+        <a href="https://github.com/sponsors/MrSaneApps" onclick="toggleMobileNav()">Donate</a>
     </div>
 
     <main>
         <section class="hero">
             <div class="container">
                 <h1>Mac Guides for a <em>Saner</em> Workflow</h1>
-                <p class="tagline">Step-by-step tutorials for cleaning up your Mac, protecting your privacy, and getting more done. All free, all 100% Transparent Code.</p>
+                <p class="tagline">Step-by-step tutorials for cleaning up your Mac, protecting your privacy, and getting more done. All free, all public code.</p>
             </div>
         </section>
 
@@ -678,7 +819,7 @@
         <section class="cta-section">
             <div class="container">
                 <h2>Try the <em>Apps</em></h2>
-                <p>Every guide is based on real tools you can use today. 100% Transparent Code — $6.99 or free to build from source.</p>
+                <p>Every guide is based on real tools you can use today. Public code tools — $6.99 or free to build from source.</p>
                 <div class="app-links-row">
                     <a href="https://sanebar.com" class="app-link">
                         <img src="icons/sanebar-icon.png" alt="SaneBar"> SaneBar
@@ -700,7 +841,7 @@
     <footer>
         <div class="container">
             <p style="font-style: italic; color: var(--text-dim); margin-bottom: 20px; opacity: 0.85;">"For God has not given us a spirit of fear, but of power, love, and a sound mind." &mdash; 2 Timothy 1:7</p>
-            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 16px;"><strong>0% Telemetry</strong>. <strong>0% Spying</strong>. <strong>100% On-Device</strong>.</p>
+            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 16px;"><strong>On-Device</strong>. <strong>No Subscriptions</strong>. <strong>Built for Mac</strong>.</p>
             <div class="footer-links">
                 <a href="/">Apps</a>
                 <a href="guides.html">Guides</a>
@@ -708,7 +849,7 @@
                 <a href="mailto:hi@saneapps.com">Contact</a>
                 <a href="https://github.com/sponsors/MrSaneApps">Sponsor</a>
             </div>
-            <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 16px;">Made with care by <a href="https://github.com/MrSaneApps" style="color: var(--accent); text-decoration: none;">Mr. Sane</a> &nbsp;&middot;&nbsp; &copy; 2026 SaneApps</p>
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 16px;">Made with ❤️ in America by Mr. Sane &middot; &copy; 2026 SaneApps</p>
         </div>
     </footer>
 

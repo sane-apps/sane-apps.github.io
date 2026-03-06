@@ -132,11 +132,11 @@ drawCenteredText("SaneApps", y: 265, fontSize: 52, color: titleColor, weight: .b
 
 // Tagline
 let taglineColor = CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 1.0) // #5fa8d3
-drawCenteredText("100% Transparent Code macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
+drawCenteredText("Public Code - macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
 
 // Subtitle
 let subtitleColor = CGColor(red: 0.75, green: 0.75, blue: 0.82, alpha: 1.0) // muted
-drawCenteredText("Privacy-First  \u{00B7}  No Telemetry  \u{00B7}  Native Swift", y: 370, fontSize: 18, color: subtitleColor, weight: .regular)
+drawCenteredText("On-Device  \u{00B7}  No Subscriptions  \u{00B7}  Built for Mac", y: 370, fontSize: 18, color: subtitleColor, weight: .regular)
 
 // Draw app icons in a row
 let iconNames = ["sanebar-icon.png", "saneclip-icon.png", "sanehosts-icon.png", "sanesync-icon.png", "sanevideo-icon.png", "saneclick-icon.png"]
@@ -158,7 +158,7 @@ ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.6))
 ctx.fill(CGRect(x: 400, y: 520, width: 400, height: 2))
 
 // Bottom text
-drawCenteredText("$6.99 Once, Yours Forever", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
+drawCenteredText("Basic Free  \u{00B7}  Pro $6.99", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
 
 // Bottom border accent
 ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.8))

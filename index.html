@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Primary Meta Tags -->
-    <title>Sane Apps — Privacy-First macOS Utilities | Transparent Code</title>
-    <meta name="title" content="Sane Apps — Privacy-First macOS Utilities | Transparent Code">
-    <meta name="description" content="Transparent code macOS utilities that respect your privacy. Menu bar manager, clipboard manager, Finder automation. All apps $6.99, no subscriptions.">
-    <meta name="keywords" content="macOS apps, transparent code, privacy, menu bar, SaneBar, Bartender alternative, clipboard manager, Mac utilities, indie software">
+    <title>Sane Apps — Public Code macOS Utilities | Built for Mac</title>
+    <meta name="title" content="Sane Apps — Public Code macOS Utilities | Built for Mac">
+    <meta name="description" content="Public code macOS utilities built for Mac. On-device by default, no subscriptions. Menu bar manager, clipboard manager, Finder automation.">
+    <meta name="keywords" content="macOS apps, public code, on-device, no subscriptions, menu bar, SaneBar, Bartender alternative, clipboard manager, Mac utilities, indie software">
     <meta name="author" content="Mr. Sane">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#08080c">
@@ -17,10 +17,10 @@
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://saneapps.com">
-    <meta property="og:title" content="Sane Apps — Privacy-First macOS Utilities">
-    <meta property="og:description" content="Transparent code macOS utilities that respect your privacy. Menu bar manager, clipboard manager, Finder automation. All apps $6.99, no subscriptions.">
+    <meta property="og:title" content="Sane Apps — Public Code macOS Utilities">
+    <meta property="og:description" content="Public code macOS utilities built for Mac. On-device by default, no subscriptions. Menu bar manager, clipboard manager, Finder automation.">
     <meta property="og:image" content="https://saneapps.com/og-image.png">
-    <meta property="og:image:alt" content="SaneApps - Transparent Code macOS Utilities">
+    <meta property="og:image:alt" content="SaneApps - Public Code macOS Utilities">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Sane Apps">
@@ -29,8 +29,8 @@
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:url" content="https://saneapps.com">
-    <meta name="twitter:title" content="Sane Apps — Privacy-First macOS Utilities">
-    <meta name="twitter:description" content="Transparent code macOS utilities that respect your privacy. Menu bar manager, clipboard manager, Finder automation. All apps $6.99, no subscriptions.">
+    <meta name="twitter:title" content="Sane Apps — Public Code macOS Utilities">
+    <meta name="twitter:description" content="Public code macOS utilities built for Mac. On-device by default, no subscriptions. Menu bar manager, clipboard manager, Finder automation.">
     <meta name="twitter:image" content="https://saneapps.com/og-image.png">
     <meta name="twitter:site" content="@saneapps">
 
@@ -52,7 +52,7 @@
         "name": "SaneApps",
         "url": "https://saneapps.com",
         "logo": "https://saneapps.com/logo.png",
-        "description": "100% Transparent Code macOS utilities that respect your privacy",
+        "description": "Public code macOS utilities built for Mac. On-device by default with no subscriptions.",
         "founder": {
             "@type": "Person",
             "name": "Mr. Sane"
@@ -825,6 +825,41 @@
             color: var(--text-muted);
             word-break: break-all;
         }
+        .crypto-how {
+            margin-top: 14px;
+            text-align: left;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+        }
+        .crypto-how strong { color: var(--text-primary); }
+        .crypto-how ol { margin: 12px 0 0; padding-left: 20px; }
+        .crypto-how li { margin-bottom: 6px; }
+        .crypto-how a { color: var(--accent); text-decoration: none; }
+        .crypto-how a:hover { text-decoration: underline; }
+        .crypto-faq {
+            margin-top: 12px;
+            text-align: left;
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            padding: 12px 14px;
+        }
+        .crypto-faq summary {
+            cursor: pointer;
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .crypto-faq p {
+            margin: 10px 0 0;
+            color: var(--text-secondary);
+            font-size: 0.92rem;
+            line-height: 1.6;
+        }
 
         /* Footer */
         footer {
@@ -859,8 +894,41 @@
 
         /* Responsive */
         @media (max-width: 768px) {
+            html {
+                -webkit-text-size-adjust: 100%;
+                text-size-adjust: 100%;
+            }
+
+            body {
+                font-size: 16px;
+                line-height: 1.65;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
+                line-height: 1.16;
+                letter-spacing: -0.015em;
+                text-wrap: balance;
+            }
+
+            h2 {
+                text-wrap: balance;
+                line-height: 1.24;
+            }
+
+            h3 {
+                text-wrap: balance;
+                line-height: 1.3;
+            }
+
+            p,
+            .tagline,
+            .section-subtitle,
+            .faq-item p,
+            .support-text {
+                font-size: 0.98rem;
+                line-height: 1.65;
+                overflow-wrap: break-word;
             }
 
             .header-content {
@@ -871,6 +939,31 @@
 
             nav { display: none; } /* Hide standard nav */
             .hamburger { display: block; } /* Show hamburger */
+
+            .testimonial-scroll {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                mask-image: none;
+                -webkit-mask-image: none;
+                padding: 0 16px 8px;
+            }
+
+            .testimonial-track {
+                animation: none;
+                gap: 14px;
+            }
+
+            .testimonial-item {
+                min-width: 82vw;
+                max-width: 82vw;
+                scroll-snap-align: start;
+            }
+
+            .testimonial-text {
+                font-size: 0.9rem;
+            }
 
             .sustainability-options {
                 grid-template-columns: 1fr;
@@ -917,7 +1010,7 @@
         <section class="hero">
             <div class="container">
                 <h1 class="animate-in delay-1">Bring <em>Sanity</em> to your Mac.</h1>
-                <p class="tagline animate-in delay-2">100% Transparent Code utilities that keep your data on your device, your workspace clean, and your mind clear.</p>
+                <p class="tagline animate-in delay-2">Public code utilities for a calmer Mac workflow. On-device, no subscriptions, built for Mac.</p>
                 <div class="trust-badges animate-in delay-3">
                     <a href="https://github.com/sane-apps" style="color: inherit; text-decoration: none;"><svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>Provably private</a>
                     <span>&#x1F4B5; No subscription</span>
@@ -937,7 +1030,7 @@
                             <span class="app-name">SaneBar</span>
                             <span class="app-status live">Live</span>
                         </div>
-                        <p class="app-desc">Hide menu bar clutter with a click. Lock sensitive icons behind Touch ID. The 100% Transparent Code Bartender alternative that works on macOS Tahoe.</p>
+                        <p class="app-desc">Hide menu bar clutter with a click. Lock sensitive icons behind Touch ID. The public code Bartender alternative built for modern macOS.</p>
                         <div class="app-links">
                             <a href="https://sanebar.com">Get SaneBar &rarr;</a>
                         </div>
@@ -1047,7 +1140,7 @@
                 <div class="testimonial-track">
                     <div class="testimonial-item">
                         <p class="testimonial-text">"For Maximum Privacy & Security: SaneBar is the unequivocal winner. Its architecture prevents data exfiltration by design. In an era of surveillance capitalism, SaneBar's silence is its loudest feature."</p>
-                        <div class="testimonial-author">u/Kevin_Cossaboon via Gemini (Reddit)</div>
+                        <div class="testimonial-author">u/Kevin_Cossaboon (Reddit)</div>
                     </div>
                     <div class="testimonial-item">
                         <p class="testimonial-text">"Great app, I just switched from Ice. I really like its minimalism and simplicity. It just works and very well."</p>
@@ -1076,7 +1169,7 @@
                     <!-- Duplicated for seamless loop -->
                     <div class="testimonial-item">
                         <p class="testimonial-text">"For Maximum Privacy & Security: SaneBar is the unequivocal winner. Its architecture prevents data exfiltration by design. In an era of surveillance capitalism, SaneBar's silence is its loudest feature."</p>
-                        <div class="testimonial-author">u/Kevin_Cossaboon via Gemini (Reddit)</div>
+                        <div class="testimonial-author">u/Kevin_Cossaboon (Reddit)</div>
                     </div>
                     <div class="testimonial-item">
                         <p class="testimonial-text">"Great app, I just switched from Ice. I really like its minimalism and simplicity. It just works and very well."</p>
@@ -1136,7 +1229,7 @@
                 <div class="faq-grid">
                     <div class="faq-item">
                         <h3>How do I know you're not collecting data?</h3>
-                        <p>Every app is 100% Transparent Code on <a href="https://github.com/sane-apps">GitHub</a>. Zero network calls. Zero analytics. Audit the code yourself — that's the point.</p>
+                        <p>Every app is public code on <a href="https://github.com/sane-apps">GitHub</a>. On-device by default, no tracking, and no subscriptions.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Do these work on the latest macOS?</h3>
@@ -1144,7 +1237,11 @@
                     </div>
                     <div class="faq-item">
                         <h3>Can I build from source?</h3>
-                        <p>Absolutely. Clone the repo, open in Xcode, build. PolyForm Shield licensed — 100% transparent code. The download option is for convenience and to support development.</p>
+                        <p>Absolutely. Clone the repo, open in Xcode, build. PolyForm Shield licensed with public code. The download option is for convenience and to support development.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h3>What happens after I pay with crypto?</h3>
+                        <p>Send your payment, then email <a href="mailto:hi@saneapps.com">hi@saneapps.com</a> with the transaction ID or screenshot and the app you want. I verify it and reply with your download details.</p>
                     </div>
                     <div class="faq-item">
                         <h3>Who's behind this?</h3>
@@ -1157,10 +1254,10 @@
         <section class="sustainability">
             <div class="container">
                 <div class="sustainability-card">
-                    <h2>100% Transparent Code <em>&#8800;</em> Free</h2>
+                    <h2>Public Code <em>&#8800;</em> Free</h2>
                     <div class="sustainability-body">
-                        <p>Great transparent-code tools die when developers can't sustain them. The developer can't afford hosting, can't afford an Apple Developer account, can't afford to keep fixing things. So they stop. And you're left with abandoned software that breaks on the next macOS update.</p>
-                        <p>SaneApps are different: <strong>100% Transparent Code AND sustainable</strong>. Every app is on <a href="https://github.com/sane-apps" style="color: var(--accent);">GitHub</a>. Audit the code, build from source, or download the signed app for $6.99 and support continued development.</p>
+                        <p>Great public-code tools die when developers can't sustain them. The developer can't afford hosting, can't afford an Apple Developer account, can't afford to keep fixing things. So they stop. And you're left with abandoned software that breaks on the next macOS update.</p>
+                        <p>SaneApps are different: <strong>public code and sustainable</strong>. Every app is on <a href="https://github.com/sane-apps" style="color: var(--accent);">GitHub</a>. Audit the code, build from source, or download the signed app for $6.99 and support continued development.</p>
                     </div>
                 </div>
             </div>
@@ -1182,30 +1279,56 @@
                 <div class="crypto-section">
                     <p style="color: var(--text-dim); margin: 32px 0 16px; font-size: 0.9rem;">Or donate with crypto:</p>
                     <div class="crypto-grid">
-                        <div class="crypto-item" onclick="copyToClipboard('3Go9nJu3dj2qaa4EAYXrTsTf5AnhcrPQke')">
+                        <div class="crypto-item" onclick="copyToClipboard(this, '3Go9nJu3dj2qaa4EAYXrTsTf5AnhcrPQke', 'BTC')">
                             <span class="crypto-label">BTC</span>
                             <code class="crypto-addr">3Go9nJu3dj2qaa4EAYXrTsTf5AnhcrPQke</code>
                         </div>
-                        <div class="crypto-item" onclick="copyToClipboard('0x026668feA51c27F0803055B8c0d881ac2F1e7C3e')">
+                        <div class="crypto-item" onclick="copyToClipboard(this, '0x026668feA51c27F0803055B8c0d881ac2F1e7C3e', 'ETH')">
                             <span class="crypto-label">ETH</span>
                             <code class="crypto-addr">0x026668feA51c27F0803055B8c0d881ac2F1e7C3e</code>
                         </div>
-                        <div class="crypto-item" onclick="copyToClipboard('FBvU83GUmwEYk3HMwZh3GBorGvrVVWSPb8VLCKeLiWZZ')">
+                        <div class="crypto-item" onclick="copyToClipboard(this, 'FBvU83GUmwEYk3HMwZh3GBorGvrVVWSPb8VLCKeLiWZZ', 'SOL')">
                             <span class="crypto-label">SOL</span>
                             <code class="crypto-addr">FBvU83GUmwEYk3HMwZh3GBorGvrVVWSPb8VLCKeLiWZZ</code>
                         </div>
                     </div>
                     <p style="color: var(--accent); font-size: 0.85rem; margin-top: 12px;">Click to copy</p>
+                    <div class="crypto-how">
+                        <strong>How it works:</strong>
+                        <ol>
+                            <li>Send your preferred amount to any address above</li>
+                            <li>Email <a href="mailto:hi@saneapps.com">hi@saneapps.com</a> with your transaction ID or screenshot</li>
+                            <li>Include which app you want so I can reply with the right download details</li>
+                        </ol>
+                    </div>
+                    <details class="crypto-faq">
+                        <summary>FAQ: is crypto only for donations?</summary>
+                        <p>No. You can use crypto for support donations or app purchases. Include the app name in your email so I can process it correctly.</p>
+                    </details>
                 </div>
             </div>
         </section>
 
         <script>
-        function copyToClipboard(text) {
+        const APP_ID = 'saneapps';
+
+        function trackCta(eventName, metadata) {
+            const detail = Object.assign({ app: APP_ID, event: eventName }, metadata || {});
+            if (typeof window.plausible === 'function') {
+                window.plausible(eventName, { props: detail });
+            }
+            if (typeof window.sa_event === 'function') {
+                window.sa_event(eventName, detail);
+            }
+            window.dispatchEvent(new CustomEvent('saneapps:cta', { detail }));
+        }
+
+        function copyToClipboard(el, text, asset) {
             navigator.clipboard.writeText(text);
             const items = document.querySelectorAll('.crypto-item');
             items.forEach(i => i.style.opacity = '0.5');
-            event.currentTarget.style.opacity = '1';
+            el.style.opacity = '1';
+            trackCta('crypto_copy', { asset: asset || 'UNKNOWN' });
             setTimeout(() => items.forEach(i => i.style.opacity = '1'), 1500);
         }
 
@@ -1221,14 +1344,14 @@
     <footer>
         <div class="container">
             <p class="footer-quote" style="font-style: italic; font-size: 0.95rem; color: var(--text-secondary, var(--text-dim)); margin-bottom: 20px; opacity: 0.85;">"For God has not given us a spirit of fear, but of power, love, and a sound mind." — 2 Timothy 1:7</p>
-            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 16px;"><strong>0% Telemetry</strong>. <strong>0% Spying</strong>. <strong>100% On-Device</strong>.</p>
+            <p style="color: var(--text-muted); font-weight: 600; margin-bottom: 16px;"><strong>On-Device</strong>. <strong>No Subscriptions</strong>. <strong>Built for Mac</strong>.</p>
             <div class="footer-links">
                 <a href="guides.html">Guides</a>
                 <a href="https://github.com/sane-apps">GitHub</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
                 <a href="https://github.com/sponsors/MrSaneApps">Sponsor</a>
             </div>
-            <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 16px;">Made with care by <a href="https://github.com/MrSaneApps" style="color: var(--accent); text-decoration: none;">Mr. Sane</a> &nbsp;&middot;&nbsp; &copy; 2026 SaneApps</p>
+            <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 16px;">Made with ❤️ in America by Mr. Sane &middot; &copy; 2026 SaneApps</p>
             <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 12px;">"Built for a Sound Mind" &middot; <a href="https://saneapps.com" style="color: var(--text-dim);">saneapps.com</a></p>
         </div>
     </footer>
