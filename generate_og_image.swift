@@ -132,7 +132,7 @@ drawCenteredText("SaneApps", y: 265, fontSize: 52, color: titleColor, weight: .b
 
 // Tagline
 let taglineColor = CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 1.0) // #5fa8d3
-drawCenteredText("Public Code - macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
+drawCenteredText("Transparent Code - macOS Utilities", y: 330, fontSize: 24, color: taglineColor, weight: .medium)
 
 // Subtitle
 let subtitleColor = CGColor(red: 0.75, green: 0.75, blue: 0.82, alpha: 1.0) // muted
