@@ -158,7 +158,7 @@ ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.6))
 ctx.fill(CGRect(x: 400, y: 520, width: 400, height: 2))
 
 // Bottom text
-drawCenteredText("Basic Free  \u{00B7}  Pro $6.99", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
+drawCenteredText("No subscriptions  \u{00B7}  Source available", y: 545, fontSize: 16, color: subtitleColor, weight: .medium)
 
 // Bottom border accent
 ctx.setFillColor(CGColor(red: 0.373, green: 0.659, blue: 0.827, alpha: 0.8))

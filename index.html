@@ -13,25 +13,26 @@
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#08080c">
     <link rel="canonical" href="https://saneapps.com">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Sane Apps — Transparent Code Apps | Built for Mac, iPhone, and iPad">
+  <meta property="og:description" content="Transparent-code apps built for Mac, iPhone, and iPad. On-device by default. Menu bar manager, clipboard manager, Finder automation, video workflow, and private document scanning.">
+  <meta property="og:url" content="https://saneapps.com">
+  <meta property="og:image" content="https://saneapps.com/og-image.png?v=20260616-card">
+  <meta property="og:image:secure_url" content="https://saneapps.com/og-image.png?v=20260616-card">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SaneApps preview card for private Mac utility apps">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://saneapps.com">
+  <meta name="twitter:title" content="Sane Apps — Transparent Code Apps | Built for Mac, iPhone, and iPad">
+  <meta name="twitter:description" content="Transparent-code apps built for Mac, iPhone, and iPad. On-device by default. Menu bar manager, clipboard manager, Finder automation, video workflow, and private document scanning.">
+  <meta name="twitter:image" content="https://saneapps.com/og-image.png?v=20260616-card">
+  <meta name="twitter:image:alt" content="SaneApps preview card for private Mac utility apps">
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://saneapps.com">
-    <meta property="og:title" content="Sane Apps — Transparent Code Apps">
-    <meta property="og:description" content="Transparent-code apps built for Mac, iPhone, and iPad. On-device by default, including local video workflow and private document scanning.">
-    <meta property="og:image" content="https://saneapps.com/og-image.png">
-    <meta property="og:image:alt" content="SaneApps - Transparent Code macOS Utilities">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
     <meta property="og:site_name" content="Sane Apps">
     <meta property="og:locale" content="en_US">
 
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://saneapps.com">
-    <meta name="twitter:title" content="Sane Apps — Transparent Code Apps">
-    <meta name="twitter:description" content="Transparent-code apps built for Mac, iPhone, and iPad. On-device by default, including local video workflow and private document scanning.">
-    <meta name="twitter:image" content="https://saneapps.com/og-image.png">
     <meta name="twitter:site" content="@saneapps">
 
     <!-- Favicon -->
@@ -332,6 +333,70 @@
 
         .tools-section {
             padding: 0 0 60px;
+        }
+
+        .bundle-section {
+            padding: 0 0 60px;
+        }
+
+        .bundle-card {
+            background: linear-gradient(150deg, rgba(92, 232, 255, 0.14) 0%, rgba(22, 22, 31, 0.96) 54%, rgba(52, 211, 153, 0.1) 100%);
+            border: 1px solid rgba(92, 232, 255, 0.28);
+            border-radius: 18px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1.3fr 0.7fr;
+            gap: 28px;
+            align-items: center;
+        }
+
+        .bundle-card h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            line-height: 1.1;
+            margin-bottom: 12px;
+        }
+
+        .bundle-card p {
+            color: var(--text-muted);
+            margin-bottom: 0;
+        }
+
+        .bundle-price {
+            font-size: clamp(2.4rem, 6vw, 4rem);
+            font-weight: 800;
+            line-height: 1;
+            color: var(--text);
+            margin-bottom: 8px;
+        }
+
+        .bundle-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .bundle-button {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            padding: 0 18px;
+            background: var(--accent);
+            color: #041014;
+            font-weight: 800;
+            text-decoration: none;
+        }
+
+        .bundle-link {
+            display: inline-flex;
+            min-height: 48px;
+            align-items: center;
+            color: var(--accent);
+            font-weight: 700;
+            text-decoration: none;
         }
 
         .tools-grid {
@@ -982,6 +1047,11 @@
             .sustainability-options {
                 grid-template-columns: 1fr;
             }
+
+            .bundle-card {
+                grid-template-columns: 1fr;
+                padding: 24px;
+            }
         }
     </style>
 </head>
@@ -998,6 +1068,7 @@
             <!-- Desktop Nav -->
             <nav>
                 <a href="#apps">Apps</a>
+                <a href="bundle.html">Bundle</a>
                 <a href="guides.html">Guides</a>
                 <a href="https://github.com/sane-apps">GitHub</a>
                 <a href="mailto:hi@saneapps.com">Contact</a>
@@ -1014,6 +1085,7 @@
     <div id="mobileNav" class="mobile-nav">
         <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Close menu">&times;</button>
         <a href="#apps" onclick="toggleMobileNav()">Apps</a>
+        <a href="bundle.html" onclick="toggleMobileNav()">Bundle</a>
         <a href="guides.html" onclick="toggleMobileNav()">Guides</a>
         <a href="https://github.com/sane-apps" onclick="toggleMobileNav()">GitHub</a>
         <a href="mailto:hi@saneapps.com" onclick="toggleMobileNav()">Contact</a>
@@ -1122,10 +1194,29 @@
                             <span class="app-name">SaneVideo</span>
                             <span class="app-status live">Live</span>
                         </div>
-                        <p class="app-desc">Native Mac video workflow for screen, camera, microphone, timeline editing, captions, demo packs, and local export. Public testing is live.</p>
+                        <p class="app-desc">Native Mac video workflow for screen, camera, microphone, timeline editing, captions, demo packs, and local export.</p>
                         <div class="app-links">
                             <a href="https://sanevideo.com">Get SaneVideo &rarr;</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bundle-section" aria-label="SaneApps Everything Bundle">
+            <div class="container">
+                <div class="bundle-card">
+                    <div>
+                        <h2>Every direct Mac Pro app in one bundle.</h2>
+                        <p>Get SaneBar, SaneClip, SaneClick, SaneHosts, SaneSales for Mac, and SaneVideo together for $49.99.</p>
+                        <div class="bundle-actions">
+                            <a class="bundle-button" href="https://go.saneapps.com/buy/bundle?ref=saneapps-home">Get the bundle</a>
+                            <a class="bundle-link" href="bundle.html">See what is included &rarr;</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bundle-price">$49.99</div>
+                        <p>One-time purchase. No subscription.</p>
                     </div>
                 </div>
             </div>
@@ -1304,7 +1395,7 @@
                     <h2>Transparent Code <em>&#8800;</em> Free</h2>
                     <div class="sustainability-body">
                         <p>Great transparent-code tools die when developers can't sustain them. The developer can't afford hosting, can't afford an Apple Developer account, can't afford to keep fixing things. So they stop. And you're left with abandoned software that breaks on the next macOS update.</p>
-                        <p>SaneApps are different: <strong>transparent code and sustainable</strong>. Every app is on <a href="https://github.com/sane-apps" style="color: var(--accent);">GitHub</a>. Audit the code, build from source, or download the signed app for $6.99 and support continued development.</p>
+                        <p>SaneApps are different: <strong>transparent code and sustainable</strong>. Every app is on <a href="https://github.com/sane-apps" style="color: var(--accent);">GitHub</a>. Audit the code, build from source, or use the signed release shown on each product page and support continued development.</p>
                     </div>
                 </div>
             </div>
