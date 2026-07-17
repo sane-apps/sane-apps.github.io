@@ -283,11 +283,12 @@
             color: var(--accent);
         }
 
-        /* Animation */
-        .animate-in {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.7s ease forwards;
+        /* Animation — hero load-in runs only when motion is allowed.
+           Base state (animation off / reduced motion / no CSS animation support) is the fully visible final state. */
+        @media (prefers-reduced-motion: no-preference) {
+            .animate-in {
+                animation: fadeInUp 0.7s ease backwards;
+            }
         }
 
         .delay-1 { animation-delay: 0.1s; }
@@ -296,6 +297,10 @@
         .delay-4 { animation-delay: 0.4s; }
 
         @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -344,7 +349,7 @@
             align-items: center;
             box-shadow: 0 0 70px -24px rgba(92, 232, 255, 0.4);
         }
-        .saas-kicker { display: inline-block; color: var(--accent); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+        .saas-kicker { display: inline-block; color: var(--accent); font-size: 0.875rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
         .saas-card h2 { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.1; margin-bottom: 14px; }
         .saas-card p { color: var(--text-muted); margin-bottom: 0; line-height: 1.6; }
         .saas-meta { display: inline-flex; align-items: center; color: var(--text-dim); font-size: 0.95rem; }
@@ -594,8 +599,27 @@
         .testimonial-track {
             display: flex;
             gap: 20px;
-            animation: testimonialScroll 18s linear infinite;
             width: max-content;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .testimonial-track {
+                animation: testimonialScroll 18s linear infinite;
+            }
+        }
+
+        /* Reduced motion: static, fully readable strip — swipe/scroll instead of marquee, no mask clipping */
+        @media (prefers-reduced-motion: reduce) {
+            .testimonial-scroll {
+                overflow-x: auto;
+                overflow-y: hidden;
+                -webkit-overflow-scrolling: touch;
+                mask-image: none;
+                -webkit-mask-image: none;
+            }
+            .testimonial-duplicate {
+                display: none;
+            }
         }
 
         .testimonial-track:hover {
@@ -1073,6 +1097,101 @@
                 padding: 24px;
             }
         }
+
+        /* ---------- Motion — progressive enhancement; page is fully readable with no JS and no animation ---------- */
+        @view-transition { navigation: auto; }
+
+        /* Hover micro-interactions (transform/opacity only; matches existing radius + shadow style) */
+        .bundle-card,
+        .saas-card,
+        .philosophy-card {
+            transition: transform 0.35s cubic-bezier(0.22, 0.7, 0.3, 1), border-color 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .bundle-card:hover,
+        .saas-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(92, 232, 255, 0.55);
+            box-shadow: 0 16px 44px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(92, 232, 255, 0.12);
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(92, 232, 255, 0.3);
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .bundle-button {
+            transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .bundle-button:hover {
+            transform: translateY(-1px);
+            background: var(--accent-hover);
+            box-shadow: 0 8px 24px rgba(92, 232, 255, 0.28);
+        }
+
+        /* Ambient hero glow — decorative, sits behind the heading; never over body text */
+        .hero .container {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero .container::before {
+            content: '';
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            width: min(700px, 92vw);
+            height: 320px;
+            transform: translateX(-50%);
+            background: radial-gradient(closest-side, rgba(92, 232, 255, 0.13), transparent 72%);
+            filter: blur(12px);
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* IO fallback path — html.io is added by JS only when CSS scroll-timelines are unsupported
+           AND the user does not prefer reduced motion. No-JS users and crawlers get the full static page. */
+        html.io .reveal {
+            opacity: 0;
+            translate: 0 18px;
+            transition: opacity 0.7s cubic-bezier(0.22, 0.7, 0.3, 1), translate 0.7s cubic-bezier(0.22, 0.7, 0.3, 1), transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html.io .reveal.in {
+            opacity: 1;
+            translate: none;
+        }
+
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
+
+        /* rise animates translate (not transform) so card hover lifts keep working after reveal */
+        @keyframes rise {
+            from { opacity: 0; translate: 0 18px; }
+            to { opacity: 1; translate: none; }
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            html { scroll-behavior: smooth; }
+
+            .hero .container::before {
+                animation: glowPulse 9s ease-in-out infinite;
+            }
+
+            @supports (animation-timeline: view()) {
+                .reveal {
+                    animation: rise 0.8s cubic-bezier(0.22, 0.7, 0.3, 1) both;
+                    animation-timeline: view();
+                    animation-range: entry 8% entry 45%;
+                }
+            }
+        }
     </style>
 </head>
 <body>
@@ -1089,6 +1208,7 @@
             <nav>
                 <a href="#apps">Apps</a>
                 <a href="#sanecite">SaneCite</a>
+                <a href="#sanelot">SaneLot</a>
                 <a href="bundle.html">Bundle</a>
                 <a href="guides.html">Guides</a>
                 <a href="https://github.com/sane-apps">GitHub</a>
@@ -1107,6 +1227,7 @@
         <button class="mobile-nav-close" onclick="toggleMobileNav()" aria-label="Close menu">&times;</button>
         <a href="#apps" onclick="toggleMobileNav()">Apps</a>
         <a href="#sanecite" onclick="toggleMobileNav()">SaneCite</a>
+        <a href="#sanelot" onclick="toggleMobileNav()">SaneLot</a>
         <a href="bundle.html" onclick="toggleMobileNav()">Bundle</a>
         <a href="guides.html" onclick="toggleMobileNav()">Guides</a>
         <a href="https://github.com/sane-apps" onclick="toggleMobileNav()">GitHub</a>
@@ -1127,113 +1248,11 @@
             </div>
         </section>
 
-        <!-- Apps Section and rest of content unchanged... keeping same structure -->
-        <section class="apps-section" id="apps">
-            <div class="container">
-                <div class="apps-grid">
-                    <!-- SaneClip -->
-                    <div class="app-card featured" onclick="window.location.href='https://saneclip.com'">
-                        <div class="app-header">
-                            <img src="icons/saneclip-icon.png" alt="SaneClip" class="app-icon">
-                            <span class="app-name">SaneClip</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Clipboard history that never leaves your Mac. Touch ID protection, instant search, text transforms. Your copy history stays yours.</p>
-                        <div class="app-links">
-                            <a href="https://saneclip.com">Get SaneClip &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SaneHosts -->
-                    <div class="app-card featured" onclick="window.location.href='https://sanehosts.com'">
-                        <div class="app-header">
-                            <img src="icons/sanehosts-icon.png" alt="SaneHosts" class="app-icon">
-                            <span class="app-name">SaneHosts</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Block ads, trackers, and telemetry at the system level. A clean UI for your hosts file. You decide who your Mac talks to.</p>
-                        <div class="app-links">
-                            <a href="https://sanehosts.com">Get SaneHosts &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SaneClick -->
-                    <div class="app-card featured" onclick="window.location.href='https://saneclick.com'">
-                        <div class="app-header">
-                            <img src="icons/saneclick-icon.png" alt="SaneClick" class="app-icon">
-                            <span class="app-name">SaneClick</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Right-click power tools for Finder. Resize images, convert files, run scripts — all from context menus.</p>
-                        <div class="app-links">
-                            <a href="https://saneclick.com">Get SaneClick &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SaneSales -->
-                    <div class="app-card featured" onclick="window.location.href='https://sanesales.com'">
-                        <div class="app-header">
-                            <img src="icons/sanesales-icon.png" alt="SaneSales" class="app-icon">
-                            <span class="app-name">SaneSales</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Track sales from multiple platforms in one dashboard. Revenue charts, order history, and home screen widgets.</p>
-                        <div class="app-links">
-                            <a href="https://sanesales.com">Get SaneSales &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SaneScan -->
-                    <div class="app-card featured" onclick="window.location.href='https://sanescan.saneapps.com'">
-                        <div class="app-header">
-                            <img src="https://sanescan.saneapps.com/assets/app-icon.png" alt="SaneScan" class="app-icon">
-                            <span class="app-name">SaneScan</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Private document scanning for iPhone and iPad. Local OCR, clean PDF export, no account, and no SaneApps cloud upload.</p>
-                        <div class="app-links">
-                            <a href="https://sanescan.saneapps.com">Get SaneScan &rarr;</a>
-                        </div>
-                    </div>
-
-                    <!-- SaneVideo -->
-                    <div class="app-card featured" onclick="window.location.href='https://sanevideo.com'">
-                        <div class="app-header">
-                            <img src="icons/sanevideo-icon.png" alt="SaneVideo" class="app-icon">
-                            <span class="app-name">SaneVideo</span>
-                            <span class="app-status live">Live</span>
-                        </div>
-                        <p class="app-desc">Native Mac video workflow for screen, camera, microphone, timeline editing, captions, demo packs, and local export.</p>
-                        <div class="app-links">
-                            <a href="https://sanevideo.com">Get SaneVideo &rarr;</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="bundle-section" aria-label="SaneApps Everything Bundle">
-            <div class="container">
-                <div class="bundle-card">
-                    <div>
-                        <h2>Every direct Mac Pro app in one bundle.</h2>
-                        <p>Get SaneClip, SaneClick, SaneHosts, SaneSales for Mac, and SaneVideo together for $49.99.</p>
-                        <div class="bundle-actions">
-                            <a class="bundle-button" href="https://go.saneapps.com/buy/bundle?ref=saneapps-home">Get the bundle</a>
-                            <a class="bundle-link" href="bundle.html">See what is included &rarr;</a>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="bundle-price">$49.99</div>
-                        <p>One-time purchase. No subscription.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
+        <!-- For your business: SaaS products first -->
         <section class="saas-section" id="sanecite" aria-label="SaneCite for teams">
             <div class="container">
-                <div class="saas-card">
+                <h2 class="section-title reveal">For your business</h2>
+                <div class="saas-card reveal">
                     <div>
                         <span class="saas-kicker">For teams &middot; not your typical Mac app</span>
                         <h2>Security questionnaires, answered from your own evidence.</h2>
@@ -1250,12 +1269,136 @@
             </div>
         </section>
 
+        <section class="saas-section" id="sanelot" aria-label="SaneLot for independent used-car dealers">
+            <div class="container">
+                <div class="saas-card reveal">
+                    <div>
+                        <span class="saas-kicker">For independent used-car dealers &middot; iPhone app</span>
+                        <h2>VIN to live listing in fifteen minutes.</h2>
+                        <p>The lot tool for independent used-car dealers &mdash; scan a VIN, shoot guided photos, get fact-checked AI listings, publish to your own website with leads to your phone.</p>
+                        <div class="bundle-actions">
+                            <a class="bundle-button" href="https://sanelot.com">Visit SaneLot &rarr;</a>
+                            <span class="saas-meta">$99.99/mo flat &middot; 14-day free trial &middot; App Store review in progress</span>
+                        </div>
+                    </div>
+                    <div class="saas-mark">
+                        <img src="icons/sanelot-icon.png" alt="SaneLot" width="120" height="120">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- For your Mac: pay-once apps -->
+        <section class="apps-section" id="apps">
+            <div class="container">
+                <h2 class="section-title reveal">For your Mac</h2>
+                <div class="apps-grid">
+                    <!-- SaneClip -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://saneclip.com'">
+                        <div class="app-header">
+                            <img src="icons/saneclip-icon.png" alt="SaneClip" class="app-icon">
+                            <span class="app-name">SaneClip</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Clipboard history that never leaves your Mac. Touch ID protection, instant search, text transforms. Your copy history stays yours.</p>
+                        <div class="app-links">
+                            <a href="https://saneclip.com">Get SaneClip &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SaneHosts -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://sanehosts.com'">
+                        <div class="app-header">
+                            <img src="icons/sanehosts-icon.png" alt="SaneHosts" class="app-icon">
+                            <span class="app-name">SaneHosts</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Block ads, trackers, and telemetry at the system level. A clean UI for your hosts file. You decide who your Mac talks to.</p>
+                        <div class="app-links">
+                            <a href="https://sanehosts.com">Get SaneHosts &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SaneClick -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://saneclick.com'">
+                        <div class="app-header">
+                            <img src="icons/saneclick-icon.png" alt="SaneClick" class="app-icon">
+                            <span class="app-name">SaneClick</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Right-click power tools for Finder. Resize images, convert files, run scripts — all from context menus.</p>
+                        <div class="app-links">
+                            <a href="https://saneclick.com">Get SaneClick &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SaneSales -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://sanesales.com'">
+                        <div class="app-header">
+                            <img src="icons/sanesales-icon.png" alt="SaneSales" class="app-icon">
+                            <span class="app-name">SaneSales</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Track sales from multiple platforms in one dashboard. Revenue charts, order history, and home screen widgets.</p>
+                        <div class="app-links">
+                            <a href="https://sanesales.com">Get SaneSales &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SaneScan -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://sanescan.saneapps.com'">
+                        <div class="app-header">
+                            <img src="https://sanescan.saneapps.com/assets/app-icon.png" alt="SaneScan" class="app-icon">
+                            <span class="app-name">SaneScan</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Private document scanning for iPhone and iPad. Local OCR, clean PDF export, no account, and no SaneApps cloud upload.</p>
+                        <div class="app-links">
+                            <a href="https://sanescan.saneapps.com">Get SaneScan &rarr;</a>
+                        </div>
+                    </div>
+
+                    <!-- SaneVideo -->
+                    <div class="app-card featured reveal" onclick="window.location.href='https://sanevideo.com'">
+                        <div class="app-header">
+                            <img src="icons/sanevideo-icon.png" alt="SaneVideo" class="app-icon">
+                            <span class="app-name">SaneVideo</span>
+                            <span class="app-status live">Live</span>
+                        </div>
+                        <p class="app-desc">Native Mac video workflow for screen, camera, microphone, timeline editing, captions, demo packs, and local export.</p>
+                        <div class="app-links">
+                            <a href="https://sanevideo.com">Get SaneVideo &rarr;</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bundle-section" aria-label="SaneApps Everything Bundle">
+            <div class="container">
+                <div class="bundle-card reveal">
+                    <div>
+                        <h2>Every direct Mac Pro app in one bundle.</h2>
+                        <p>Get SaneClip, SaneClick, SaneHosts, SaneSales for Mac, and SaneVideo together for $49.99.</p>
+                        <div class="bundle-actions">
+                            <a class="bundle-button" href="https://go.saneapps.com/buy/bundle?ref=saneapps-home">Get the bundle</a>
+                            <a class="bundle-link" href="bundle.html">See what is included &rarr;</a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="bundle-price">$49.99</div>
+                        <p>One-time purchase. No subscription.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section class="tools-section">
             <div class="container">
-                <h2 class="section-title">Free Tools</h2>
-                <p class="section-subtitle">Useful side tools built by SaneApps. Lightweight, privacy-respecting, and worth trying if they solve a real problem for you.</p>
+                <h2 class="section-title reveal">Free Tools</h2>
+                <p class="section-subtitle reveal">Useful side tools built by SaneApps. Lightweight, privacy-respecting, and worth trying if they solve a real problem for you.</p>
                 <div class="tools-grid">
-                    <div class="app-card" onclick="trackCta('lanatax_open', { source: 'free_tools' }); window.location.href='https://tax.saneapps.com/?ref=saneapps'">
+                    <div class="app-card reveal" onclick="trackCta('lanatax_open', { source: 'free_tools' }); window.location.href='https://tax.saneapps.com/?ref=saneapps'">
                         <div class="app-header">
                             <div class="app-icon" style="display: flex; align-items: center; justify-content: center; background: linear-gradient(145deg, #13202a 0%, #0b1118 100%); color: var(--accent); font-size: 1.35rem; font-weight: 700;">LT</div>
                             <span class="app-name">LanaTax</span>
@@ -1273,7 +1416,7 @@
         <!-- Social Proof -->
         <section class="social-proof">
             <div class="container">
-                <div class="seen-on">
+                <div class="seen-on reveal">
                     <p class="seen-label">As featured on</p>
                     <div class="seen-logos">
                         <a href="https://launchigniter.com" target="_blank" rel="noopener" class="seen-item">
@@ -1295,20 +1438,20 @@
 
         <section class="philosophy">
             <div class="container">
-                <h2 class="section-title">Built for a Sound Mind</h2>
-                <p class="philosophy-quote">"For God has not given us a spirit of fear, but of power and of love and of a sound mind." — 2 Timothy 1:7</p>
+                <h2 class="section-title reveal">Built for a Sound Mind</h2>
+                <p class="philosophy-quote reveal">"For God has not given us a spirit of fear, but of power and of love and of a sound mind." — 2 Timothy 1:7</p>
                 <div class="philosophy-grid">
-                    <div class="philosophy-card">
+                    <div class="philosophy-card reveal">
                         <span class="philosophy-emoji">&#9889;</span>
                         <h3>Power</h3>
                         <p>Your data stays on your device. No cloud lock-in. No spying. You're in control.</p>
                     </div>
-                    <div class="philosophy-card">
+                    <div class="philosophy-card reveal">
                         <span class="philosophy-emoji">&#10084;&#65039;</span>
                         <h3>Love</h3>
                         <p>Built to serve, not extract. No dark patterns. No manipulation. Just useful software.</p>
                     </div>
-                    <div class="philosophy-card">
+                    <div class="philosophy-card reveal">
                         <span class="philosophy-emoji">&#129504;</span>
                         <h3>Sound Mind</h3>
                         <p>Clean, calm interfaces. No clutter, no anxiety. Software that helps you focus.</p>
@@ -1319,25 +1462,25 @@
 
         <section class="faq-section" id="faq">
             <div class="container">
-                <h2 class="section-title">Common Questions</h2>
+                <h2 class="section-title reveal">Common Questions</h2>
                 <div class="faq-grid">
-                    <div class="faq-item">
+                    <div class="faq-item reveal">
                         <h3>How do I know you're not collecting data?</h3>
                         <p>Every app is transparent code on <a href="https://github.com/sane-apps">GitHub</a>. On-device by default, no tracking, and no subscriptions.</p>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item reveal">
                         <h3>Do these work on the latest macOS?</h3>
                         <p>Yes. SaneApps are actively maintained and tested on macOS Tahoe. I don't abandon software — that's the whole model.</p>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item reveal">
                         <h3>Can I build from source?</h3>
                         <p>Absolutely. Clone the repo, open in Xcode, build. PolyForm Shield licensed with transparent code. The download option is for convenience and to support development.</p>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item reveal">
                         <h3>What happens after I pay with crypto?</h3>
                         <p>Send your payment, then email <a href="mailto:hi@saneapps.com">hi@saneapps.com</a> with the transaction ID or screenshot and the app you want. I verify it and reply with your download details.</p>
                     </div>
-                    <div class="faq-item">
+                    <div class="faq-item reveal">
                         <h3>Who's behind this?</h3>
                         <p>One indie developer. No VC funding. No board of directors. No acquisition plans. Just software that works because someone cares enough to maintain it.</p>
                     </div>
@@ -1347,7 +1490,7 @@
 
         <section class="sustainability">
             <div class="container">
-                <div class="sustainability-card">
+                <div class="sustainability-card reveal">
                     <h2>Transparent Code <em>+</em> Sustainable</h2>
                     <div class="sustainability-body">
                         <p>Open code does not make maintenance free. Apple Developer fees, hosting, support, and macOS changes still cost time and money. When nobody pays, useful tools stop getting maintained.</p>
@@ -1360,9 +1503,9 @@
         <section class="support-section">
             <div class="container">
                 <p style="font-style: italic; color: var(--text-dim); margin-bottom: 24px;">"The worker is worthy of his wages." — 1 Timothy 5:18</p>
-                <h2 class="section-title">Support the Project</h2>
-                <p class="support-text">No Big Tech. No investors. No ads. Just one developer building tools that respect people.</p>
-                <p class="support-text">Thank you. — Mr. Sane</p>
+                <h2 class="section-title reveal">Support the Project</h2>
+                <p class="support-text reveal">No Big Tech. No investors. No ads. Just one developer building tools that respect people.</p>
+                <p class="support-text reveal">Thank you. — Mr. Sane</p>
                 <a href="https://github.com/sponsors/MrSaneApps" class="sponsor-button">
                     <svg height="16" viewBox="0 0 16 16" width="16" fill="currentColor">
                         <path d="M4.25 2.5c-1.336 0-2.75 1.164-2.75 3 0 2.15 1.58 4.144 3.365 5.682A20.565 20.565 0 008 13.393a20.561 20.561 0 003.135-2.211C12.92 9.644 14.5 7.65 14.5 5.5c0-1.836-1.414-3-2.75-3-1.373 0-2.609.986-3.029 2.456a.75.75 0 01-1.442 0C6.859 3.486 5.623 2.5 4.25 2.5zM8 14.25l-.345.666-.002-.001-.006-.003-.018-.01a7.643 7.643 0 01-.31-.17 22.075 22.075 0 01-3.434-2.414C2.045 10.731 0 8.35 0 5.5 0 2.836 2.086 1 4.25 1 5.797 1 7.153 1.802 8 3.02 8.847 1.802 10.203 1 11.75 1 13.914 1 16 2.836 16 5.5c0 2.85-2.045 5.231-3.885 6.818a22.08 22.08 0 01-3.744 2.584l-.018.01-.006.003h-.002L8 14.25z"/>
@@ -1450,5 +1593,16 @@
         </div>
     </footer>
     <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "cbd53694e0654329ae1436b06f70a9b4"}'></script><!-- End Cloudflare Web Analytics -->
+    <script>
+    // Scroll reveals: CSS scroll-timelines where supported; IntersectionObserver otherwise.
+    // The .io class (which hides .reveal pre-scroll) is only added when JS runs — no-JS and crawlers get the full static page.
+    (function(){
+      if(CSS.supports("animation-timeline: view()"))return;
+      if(!("IntersectionObserver" in window)||matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+      document.documentElement.classList.add("io");
+      var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");o.unobserve(e.target)}})},{rootMargin:"0px 0px -8% 0px",threshold:.08});
+      document.querySelectorAll(".reveal").forEach(function(el){o.observe(el)});
+    })();
+    </script>
 </body>
 </html>
