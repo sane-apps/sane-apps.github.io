@@ -1,0 +1,43 @@
+{
+  "type": "visual_audit",
+  "status": "passed",
+  "host": "Stephans-Mac-mini.local",
+  "inspected": true,
+  "app": "saneapps.com",
+  "app_version": "source-candidate",
+  "commit": "312b495007bf5ca3085fd1243e7d42ee90cf4f4e",
+  "generated_at": "2026-09-06T19:11:30Z",
+  "capture_mode": "mini-local",
+  "captured_with": "Playwright headless Brave on the Mini (capture-web-screenshot.sh)",
+  "url": "file:///Users/stephansmac/SaneApps/websites/saneapps.com/index.html",
+  "reduced_motion": "reduce",
+  "viewport": {
+    "label": "desktop",
+    "width": 1440,
+    "height": 1000
+  },
+  "source": {
+    "target_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "remote_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "git_head": "312b495007bf5ca3085fd1243e7d42ee90cf4f4e",
+    "git_branch": "main",
+    "git_dirty": true,
+    "git_status_sha256": "f00fe48f189e49eeafe2f4c2fe1dff7d39a11a192f34b1eb35902b0da2552db6",
+    "manifest_file_count": 36,
+    "manifest_sha256": "0cbf2c00f5dc2ee005ba7c03919370d218572939580ca3a3badcc9ac6f5a6d87",
+    "source_unchanged_during_capture": true,
+    "shared_config_links": [],
+    "air_mini_parity": null
+  },
+  "screenshots": [
+    {
+      "path": "saneapps.com-index-desktop-mini-20260906-191123.png",
+      "sha256": "b3f2b3067ac6e30689e80a9d21c74e465cfdfd32b1116ac7ed6967c4c36887f2",
+      "bytes": 1422647,
+      "view": "file:///Users/stephansmac/SaneApps/websites/saneapps.com/index.html full page at desktop 1440x1000, reduced motion reduce",
+      "result": "PASS: all 2 hearts visibly pink inside; white readable unclipped Donate/Sponsor labels.",
+      "inspected": true
+    }
+  ],
+  "notes": "Source-only proof: all Donate/Sponsor targets inspected at native resolution in saved PNG detail crops. Heart interior is pink; hub keeps existing white edge against pink button. Scope is the changed hearts/labels. Native motion state: reduce"
+}
