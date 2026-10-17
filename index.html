@@ -51,16 +51,103 @@
     {
         "@context": "https://schema.org",
         "@type": "Organization",
+        "@id": "https://saneapps.com/#org",
         "name": "SaneApps",
         "url": "https://saneapps.com",
         "logo": "https://saneapps.com/logo.png",
         "description": "Transparent-code apps built for Mac, iPhone, and iPad. On-device by default.",
+        "email": "hi@saneapps.com",
         "founder": {
             "@type": "Person",
             "name": "Mr. Sane"
         },
         "sameAs": [
-            "https://github.com/sane-apps"
+            "https://github.com/sane-apps",
+            "https://x.com/MrSaneApps"
+        ],
+        "owns": [
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneClip",
+                "url": "https://saneclip.com/",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "macOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneHosts",
+                "url": "https://sanehosts.com/",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "macOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneClick",
+                "url": "https://saneclick.com/",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "macOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneSales",
+                "url": "https://sanesales.com/",
+                "applicationCategory": "BusinessApplication",
+                "operatingSystem": "macOS, iOS, iPadOS, watchOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneVideo",
+                "url": "https://sanevideo.com/",
+                "applicationCategory": "MultimediaApplication",
+                "operatingSystem": "macOS"
+            },
+            {
+                "@type": "SoftwareApplication",
+                "name": "SaneScan",
+                "url": "https://sanescan.saneapps.com/",
+                "applicationCategory": "UtilitiesApplication",
+                "operatingSystem": "iOS, iPadOS"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+                "@type": "Question",
+                "name": "How do I know you're not collecting data?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Every app is transparent code on GitHub. On-device by default, no tracking, and no subscriptions."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Do these work on the latest macOS?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Yes. SaneApps are actively maintained and tested on macOS Tahoe. I don't abandon software — that's the whole model."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Can I build from source?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutely. Clone the repo, open in Xcode, build. PolyForm Shield licensed with transparent code. The download option is for convenience and to support development."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "Who's behind this?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "One indie developer. No VC funding. No board of directors. No acquisition plans. Just software that works because someone cares enough to maintain it."
+                }
+            }
         ]
     }
     </script>
