@@ -1,0 +1,4 @@
+# Cloudflare Pages redirects: [source] [destination] [code]
+# The Via Patrum library is free; its downloads live on viapatrum.org (8 Nov 2026).
+/library https://viapatrum.org/downloads/ 301
+/library.html https://viapatrum.org/downloads/ 301
