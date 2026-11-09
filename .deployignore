@@ -1,0 +1,13 @@
+# Working files kept out of the Cloudflare Pages upload.
+# release.sh --website-only stages the site without these (scripts/stage_pages_deploy.rb).
+outputs/
+.github/
+/.gitignore
+/AGENTS.md
+/README.md
+/CLAUDE.md
+/SESSION_HANDOFF.md
+*.swift
+*.py
+*.sh
+*.rb
