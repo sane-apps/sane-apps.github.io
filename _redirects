@@ -2,3 +2,8 @@
 # The Via Patrum library is free; its downloads live on viapatrum.org (8 Nov 2026).
 /library https://viapatrum.org/downloads/ 301
 /library.html https://viapatrum.org/downloads/ 301
+# Repo working files once deployed by mistake; .deployignore keeps them out now, but Pages keeps
+# serving files from older deployments on the custom domain, so send them home (11 Nov 2026).
+/AGENTS.md / 301
+/README.md / 301
+/generate_og_image.swift / 301
