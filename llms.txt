@@ -8,7 +8,7 @@
 - SaneClick: 62 Finder right-click actions (OCR, image conversion, PDF merge, scripts). $14.99 once after a 14-day trial. https://saneclick.com/ (guides: https://saneclick.com/guides)
 - SaneSales: free revenue tracker (MIT) for indie sellers on Lemon Squeezy, Gumroad and Stripe; Mac, iPhone, iPad, Apple Watch. https://sanesales.com/ (guides: https://sanesales.com/guides)
 - SaneVideo: free Mac screen and camera recorder; one-click Clean Up cuts silences and filler words, plus captions, YouTube exports and vertical Shorts, made on the Mac. https://sanevideo.com/
-- SaneApps Everything Bundle: one license key that unlocks Pro in SaneClip, SaneClick and SaneHosts, $49.99 once. https://saneapps.com/bundle
+- SaneApps Everything Bundle: one license key that unlocks Pro in SaneClip, SaneClick and SaneHosts, $34.99 once. https://saneapps.com/bundle
 
 ## iPhone and iPad
 - SaneScan: free private document scanner (MIT) with local OCR and PDF export, no account. https://sanescan.saneapps.com/ (guides: https://sanescan.saneapps.com/guides)
