@@ -1,0 +1,48 @@
+{
+  "type": "visual_audit",
+  "status": "passed",
+  "host": "Stephans-Mac-mini.local",
+  "inspected": true,
+  "app": "SaneApps",
+  "app_version": "20261112",
+  "commit": "7219a922c565cdb1df0dea1eb30bb2d093230fed",
+  "generated_at": "2026-11-13T02:30:36Z",
+  "capture_mode": "mini-local",
+  "captured_with": "Playwright headless Brave on the Mini (capture-web-screenshot.sh)",
+  "url": "http://127.0.0.1:8791/privacy.html",
+  "reduced_motion": "no-preference",
+  "viewport": {
+    "label": "375",
+    "width": 375,
+    "height": 900
+  },
+  "source": {
+    "target_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "remote_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "git_head": "7219a922c565cdb1df0dea1eb30bb2d093230fed",
+    "git_branch": "main",
+    "git_dirty": true,
+    "git_status_sha256": "1f8e0fa6c2710a2644f6289d8ba17071de5aca410ee2160e2faf4c0df3e7ff4b",
+    "manifest_file_count": 59,
+    "manifest_sha256": "173c200e06ee39780903b04b026b628bdd8aa30ae8e26ebd5ae31f54f7f6299a",
+    "source_unchanged_during_capture": true,
+    "shared_config_links": [],
+    "air_mini_parity": null
+  },
+  "screenshots": [
+    {
+      "path": "SaneApps-privacy-375-375-mini-20261113-023027.png",
+      "sha256": "4be347f0d353d8e390d1977f0847dd7b55e2e64fcff03f79f333cc141a40f683",
+      "bytes": 351016,
+      "view": "http://127.0.0.1:8791/privacy.html full page at 375 375x900, reduced motion no-preference",
+      "result": "Opened and inspected; changed text renders, no overflow.",
+      "inspected": true
+    }
+  ],
+  "notes": "Scaffold from capture-web-screenshot.sh. OPEN the PNG, confirm the change renders, then set inspected:true (top-level + screenshot) and fill in result. Do NOT fabricate.",
+  "also_inspected": [
+    "SaneApps-terms-desktop-desktop-mini-20261113-023000.png: date Nov 12 2026; section 1 lists live apps without SaneBar, SaneBar retired line, per-app licenses; section 7 per-app licenses. Clean.",
+    "SaneApps-terms-375-375-mini-20261113-023010.png: same text wraps cleanly at 375 px; links visible; no overflow.",
+    "SaneApps-privacy-desktop-desktop-mini-20261113-023018.png: date Nov 12 2026; eight app policy links; SaneBar marked retired. Clean."
+  ]
+}
