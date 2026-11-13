@@ -1,0 +1,83 @@
+{
+  "type": "visual_audit",
+  "status": "passed",
+  "host": "Stephans-Mac-mini.local",
+  "inspected": true,
+  "app": "SaneApps",
+  "app_version": "20261112",
+  "commit": "85597d6badadb097fb1da092399a036b50bd8890",
+  "generated_at": "2026-11-13T00:19:12Z",
+  "capture_mode": "mini-local",
+  "captured_with": "Playwright headless Brave on the Mini (capture-web-screenshot.sh)",
+  "url": "http://127.0.0.1:8791/index.html",
+  "reduced_motion": "reduce",
+  "viewport": {
+    "label": "375",
+    "width": 375,
+    "height": 900
+  },
+  "source": {
+    "target_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "remote_root": "/Users/stephansmac/SaneApps/websites/saneapps.com",
+    "git_head": "85597d6badadb097fb1da092399a036b50bd8890",
+    "git_branch": "main",
+    "git_dirty": true,
+    "git_status_sha256": "ea5c8a6ef54857140336ed98fae714e8c4dbe31cf8a9b497e030c5ed401c3c50",
+    "manifest_file_count": 53,
+    "manifest_sha256": "b17c8e8466bbec18853a8fc2d5712bc38204fae85215e5f3c35771fac4201841",
+    "source_unchanged_during_capture": true,
+    "shared_config_links": [],
+    "air_mini_parity": null
+  },
+  "screenshots": [
+    {
+      "path": "SaneApps-bundle-375-375-mini-20261113-001810.png",
+      "sha256": "ec9c12d3b78265c50a734080d964b3ec316f89476890ad888a70bfd57167997b",
+      "bytes": 248674,
+      "view": "bundle-375",
+      "result": "Opened. Price panel says it unlocks Pro in SaneClip, SaneClick and SaneHosts; three app cards stack; free-note for SaneSales and SaneVideo wraps cleanly.",
+      "inspected": true
+    },
+    {
+      "path": "SaneApps-bundle-desktop-desktop-mini-20261113-001803.png",
+      "sha256": "f4167e3025753c2a07bfe048ce004fa55fbc7bf7f87998eaf445c2fbf7f0e3fb",
+      "bytes": 425384,
+      "view": "bundle-desktop",
+      "result": "Opened. Three included-app cards in one row, free-note below, price panel right.",
+      "inspected": true
+    },
+    {
+      "path": "SaneApps-guides-375-375-mini-20261113-001754.png",
+      "sha256": "fc4165ac85d0c7d3f1bad830aa6a74b14e4d945a7a796f681cbe7a032bd7efdf",
+      "bytes": 1171107,
+      "view": "guides-375",
+      "result": "Opened. Guides by App (six index cards) and New in SaneHosts 1.1.27 stack to one column; text wraps cleanly.",
+      "inspected": true
+    },
+    {
+      "path": "SaneApps-guides-desktop-desktop-mini-20261113-001746.png",
+      "sha256": "67d91d5320be91078ab014e1143d6c42a998a0a709dc3fcef09122d801561f4b",
+      "bytes": 1195953,
+      "view": "guides-desktop",
+      "result": "Opened. Guides by App grid (3x2) and the three new SaneHosts guide cards render above the existing sections.",
+      "inspected": true
+    },
+    {
+      "path": "SaneApps-index-375-375-mini-20261113-001902.png",
+      "sha256": "729a32b4a694e01f0d601a9f5a641ae2a2e997489f0b35f0795edd293c920cbc",
+      "bytes": 1064447,
+      "view": "index-375",
+      "result": "Opened. Hero, For your Mac cards (SaneClip, SaneHosts with Touch ID guide link, SaneClick, SaneSales Free, SaneVideo Free), SaneScan moved to the free section, corrected bundle copy and FAQ render. Cards fit 375 px after the minmax(min(340px,100%)) fix; no sideways overflow.",
+      "inspected": true
+    },
+    {
+      "path": "SaneApps-index-desktop-desktop-mini-20261113-001851.png",
+      "sha256": "23bbbbc0d77a37609ef58026fbd85e48de31e97990ebdbdec02583d2e735139d",
+      "bytes": 1218166,
+      "view": "index-desktop",
+      "result": "Opened. Three-column cards, free section with SaneScan, Via Patrum, SaneCite; bundle card text fits; FAQ shows five Q&As matching the JSON-LD.",
+      "inspected": true
+    }
+  ],
+  "notes": "All six PNGs opened and inspected by the agent on 12 Nov 2026 (index/guides/bundle at desktop and 375). Pre-commit tree."
+}

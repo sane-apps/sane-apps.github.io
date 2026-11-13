@@ -1,24 +1,25 @@
 # SaneApps
 
-> SaneApps makes small, privacy-first apps for Mac, iPhone and iPad, built by one independent developer ("Mr. Sane"). Apps are on-device by default, have no subscriptions, and publish their source code on GitHub (PolyForm Shield licence). Direct Mac apps include every feature free for 14 days, then a one-time purchase.
+> SaneApps makes small, privacy-first apps for Mac, iPhone and iPad, built by one independent developer ("Mr. Sane"). Apps are on-device by default, have no subscriptions, and publish their source code on GitHub. SaneClip, SaneClick, SaneHosts and SaneVideo use the PolyForm Shield license; SaneSales and SaneScan use the MIT license. The paid Mac apps (SaneClip, SaneClick, SaneHosts) include every feature free for 14 days, then a one-time purchase.
 
 ## Mac apps
-- SaneClip: private clipboard manager with Touch ID lock, AES-256 encrypted history, OCR capture and a free iPhone companion. $14.99 once. https://saneclip.com/ (llms.txt: https://saneclip.com/llms.txt)
-- SaneHosts: system-wide ad, tracker and distraction blocking through the Mac hosts file, with 200+ curated blocklists and five protection levels. $14.99 once. https://sanehosts.com/
-- SaneClick: 62 Finder right-click actions (OCR, image conversion, PDF merge, scripts). $14.99 once. https://saneclick.com/
-- SaneSales: private revenue tracker for indie sellers on Lemon Squeezy, Gumroad and Stripe; Mac, iPhone, iPad, Apple Watch. https://sanesales.com/
-- SaneVideo: local Mac screen and camera recorder with editing, captions and transcription; nothing is uploaded. https://sanevideo.com/
-- SaneApps Bundle: SaneClip, SaneClick, SaneHosts, SaneSales for Mac and SaneVideo for $49.99 once. https://saneapps.com/bundle
+- SaneClip: private clipboard manager with Touch ID lock, AES-256 encrypted history, OCR capture, snippets and a free iPhone companion. $14.99 once after a 14-day trial. https://saneclip.com/ (guides: https://saneclip.com/guides, llms.txt: https://saneclip.com/llms.txt)
+- SaneHosts: blocks ads and trackers in every app on a Mac through the hosts file. 30 curated blocklists, five protection levels, Allowed Sites, weekly list updates and an optional Touch ID Protection Lock (new in 1.1.27). $14.99 once after a 14-day trial. https://sanehosts.com/ (guides: https://sanehosts.com/guides)
+- SaneClick: 62 Finder right-click actions (OCR, image conversion, PDF merge, scripts). $14.99 once after a 14-day trial. https://saneclick.com/ (guides: https://saneclick.com/guides)
+- SaneSales: free revenue tracker (MIT) for indie sellers on Lemon Squeezy, Gumroad and Stripe; Mac, iPhone, iPad, Apple Watch. https://sanesales.com/ (guides: https://sanesales.com/guides)
+- SaneVideo: free Mac screen and camera recorder; one-click Clean Up cuts silences and filler words, plus captions, YouTube exports and vertical Shorts, made on the Mac. https://sanevideo.com/
+- SaneApps Everything Bundle: one license key that unlocks Pro in SaneClip, SaneClick and SaneHosts, $49.99 once. https://saneapps.com/bundle
 
 ## iPhone and iPad
-- SaneScan: free private document scanner with local OCR and PDF export, no account. https://sanescan.saneapps.com/
+- SaneScan: free private document scanner (MIT) with local OCR and PDF export, no account. https://sanescan.saneapps.com/ (guides: https://sanescan.saneapps.com/guides)
+- Via Patrum: the Church Fathers in new English translations, free on the web and on iPhone and iPad, with read-along audio. https://viapatrum.org/
 
 ## Other projects
 - SaneCite: an open checker of the scientific record; Campaign One audits how retracted papers keep getting cited. https://sanecite.com/ (llms.txt: https://sanecite.com/llms.txt)
-- LanaTax: free in-browser Solana transaction export for tax tools. https://tax.saneapps.com/
+- LanaTax: free in-browser Solana transaction export for tax tools. https://tax.saneapps.com/ (guides: https://tax.saneapps.com/guides)
 
 ## Facts
 - Developer: one independent developer, no outside investors. Contact: hi@saneapps.com
 - Source: https://github.com/sane-apps
-- Guides for every app: https://saneapps.com/guides.html
-- Privacy: https://saneapps.com/privacy.html · Terms: https://saneapps.com/terms.html
+- Guides for every app: https://saneapps.com/guides
+- Privacy: https://saneapps.com/privacy · Terms: https://saneapps.com/terms
