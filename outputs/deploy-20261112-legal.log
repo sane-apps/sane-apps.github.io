@@ -1,0 +1,22 @@
+[0;32m[INFO][0m Loaded headless secrets from /Users/stephansmac/.config/nv/env
+[1;33m[WARN][0m Homebrew cask publish disabled: SaneApps is not in PUBLIC_CHANNEL_ALLOWLIST (SaneBar,SaneClip,SaneHosts,SaneClick,SaneSales)
+staged 31 files into /var/folders/k3/rv4pdt_93w96djzjnsyszgl40000gn/T//pages-deploy.HuZLyq/site
+[0;32m[INFO][0m Deploying staged copy (see .deployignore): /var/folders/k3/rv4pdt_93w96djzjnsyszgl40000gn/T//pages-deploy.HuZLyq/site
+[0;32m[INFO][0m Running social_card_audit.py for saneapps.com from /var/folders/k3/rv4pdt_93w96djzjnsyszgl40000gn/T//pages-deploy.HuZLyq/site...
+Social card audit passed for 5 page(s)
+[0;32m[INFO][0m Running seo_site_audit.py for saneapps.com from /var/folders/k3/rv4pdt_93w96djzjnsyszgl40000gn/T//pages-deploy.HuZLyq/site...
+SEO site audit passed for 5 page(s)
+[0;32m[INFO][0m Deploying website to Cloudflare Pages (saneapps-site) from /var/folders/k3/rv4pdt_93w96djzjnsyszgl40000gn/T//pages-deploy.HuZLyq/site...
+
+ ⛅️ wrangler 4.104.0 (update available 4.161.0)
+───────────────────────────────────────────────
+Uploading... (27/29)
+Uploading... (28/29)
+Uploading... (29/29)
+✨ Success! Uploaded 2 files (27 already uploaded) (1.24 sec)
+
+✨ Uploading _headers
+✨ Uploading _redirects
+🌎 Deploying...
+✨ Deployment complete! Take a peek over at https://61230d45.saneapps-site.pages.dev
+[0;32m[INFO][0m Website deploy complete.
